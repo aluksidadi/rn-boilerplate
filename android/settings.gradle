@@ -1,0 +1,3 @@
+rootProject.name = 'mitti_mobile'
+
+include ':app'
