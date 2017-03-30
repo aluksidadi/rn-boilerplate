@@ -5,7 +5,7 @@ import SideMenu from './components/SideMenu';
 import {openDrawer, closeDrawer, changeScene, onNavigate} from './navigationActions';
 import {logout} from '../App/appActions';
 
-class NavigationDrawer extends Component {
+class NavigationDrawerContainer extends Component {
   static propTypes = {
     isDrawerOpen: PropTypes.bool.isRequired,
     openDrawer: PropTypes.func.isRequired,
@@ -57,4 +57,4 @@ export default connect(
     onNavigate,
     logout,
   }
-)(NavigationDrawer);
+)(NavigationDrawerContainer);

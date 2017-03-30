@@ -4,7 +4,7 @@ import Login from './scenes/Login';
 import Home from './scenes/Home';
 import Splash from './scenes/Splash';
 import { Text } from 'react-native';
-import NavigationDrawer from './modules/Navigation/NavigationDrawer';
+import NavigationDrawerContainer from './modules/Navigation/NavigationDrawerContainer';
 
 export const SCENES = {
   splash: {
@@ -41,9 +41,9 @@ const scenes = Actions.create(
 export default class Routes extends Component {
   render() {
     return (
-      <NavigationDrawer>
+      <NavigationDrawerContainer>
         <Router scenes={scenes} />
-      </NavigationDrawer>
+      </NavigationDrawerContainer>
     );
   }
 }
