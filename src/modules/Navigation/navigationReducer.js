@@ -1,8 +1,8 @@
 import { CHANGE_SCENE } from './navigationActions';
-import { SCENES } from '../../../routes';
+import { SCENES } from '../../routes';
 
 const initialState = {
-  scene: SCENES.login,
+  scene: SCENES.login.key,
 };
 
 export default function app(state = initialState, action) {

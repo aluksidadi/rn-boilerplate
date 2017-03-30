@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Routes from '../../routes.js';
+import { STORAGE_KEYS } from '../../constants/constants';
+import { AsyncStorage } from 'react-native';
+import { connect } from 'react-redux';
+import { getLastSession } from './appActions';
 
-export default class App extends Component {
+class App extends Component {
+  static propTypes = {
+    getLastSession: PropTypes.func.isRequired,
+  };
+
   componentDidMount() {
-    // get token
-    // get me
+    this.props.getLastSession();
   }
 
   render() {
@@ -13,3 +20,17 @@ export default class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    ...state.app,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  {
+    getLastSession,
+    // changeScene,
+  }
+)(App);

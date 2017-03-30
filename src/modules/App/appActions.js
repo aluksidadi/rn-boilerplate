@@ -8,6 +8,7 @@ import * as navigationActions from '../../modules/Navigation/navigationActions';
 import { SCENES } from '../../routes';
 import * as colors from '../../styles/colors';
 import Snackbar from 'react-native-snackbar';
+import { ActionConst } from 'react-native-router-flux';
 
 export const APP_LOGOUT = 'APP_LOGOUT';
 export const APP_LOGOUT_SUCCESS = 'APP_LOGOUT_SUCCESS';
@@ -94,6 +95,20 @@ export const getMe = () => {
     return promise;
   };
 };
+
+export const getLastSession = () => {
+  return (dispatch, getState) => {
+    return AsyncStorage
+      .getItem(STORAGE_KEYS.token, (error, token) => {
+        if (!error) {
+          dispatch(createSession(token));
+          dispatch(getMe());
+          dispatch(navigationActions.changeScene(SCENES.home.key, ActionConst.RESET));
+        }
+        return token;
+      });
+  }
+}
 
 export const createSession = (token) => ({
   type: APP_CREATE_SESSION,
