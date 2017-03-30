@@ -7,7 +7,7 @@ import {
 import { SCENES } from '../../routes';
 
 const initialState = {
-  scene: SCENES.login.key,
+  scene: SCENES.splash.key,
   isDrawerOpen: false,
 };
 

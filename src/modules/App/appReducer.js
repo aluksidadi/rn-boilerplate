@@ -17,8 +17,8 @@ const initialState = {
 export default function app(state = initialState, action) {
   switch (action.type) {
     case APP_CREATE_SESSION:
-      AsyncStorage.setItem(STORAGE_KEYS.token, token);
       const { token } = action;
+      AsyncStorage.setItem(STORAGE_KEYS.token, token);
       return {
         ...state,
         token,

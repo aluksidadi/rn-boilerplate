@@ -20,6 +20,7 @@ export const APP_DESTROY_SESSION = 'APP_DESTROY_SESSION';
 export const APP_GET_ME = 'APP_GET_ME';
 export const APP_GET_ME_SUCCESS = 'APP_GET_ME_SUCCESS';
 export const APP_GET_ME_ERROR = 'APP_GET_ME_ERROR';
+export const APP_GET_LAST_SESSION = 'APP_GET_LAST_SESSION';
 
 const _logout = () => ({
   type: APP_LOGOUT,
@@ -98,12 +99,14 @@ export const getMe = () => {
 
 export const getLastSession = () => {
   return (dispatch, getState) => {
+    dispatch({
+      type: APP_GET_LAST_SESSION,
+    });
     return AsyncStorage
       .getItem(STORAGE_KEYS.token, (error, token) => {
         if (!error && token) {
           dispatch(createSession(token));
           dispatch(getMe());
-          dispatch(navigationActions.changeScene(SCENES.home.key, ActionConst.RESET));
         }
         return token;
       });
