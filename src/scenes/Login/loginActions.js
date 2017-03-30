@@ -1,7 +1,7 @@
 // import * as authApi from '../../api/authApi.js';
 import * as authApi from '../../api/authMock.js';
-import * as navigationActions from '../../modules/Navigation/navigationActions';
-import * as appActions from '../../modules/App/appActions';
+import * as navigationActions from '../../modules/navigation/navigationActions';
+import * as appActions from '../../modules/app/appActions';
 import { SCENES } from '../../routes';
 import { ActionConst } from 'react-native-router-flux';
 

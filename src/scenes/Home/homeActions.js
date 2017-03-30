@@ -1,7 +1,7 @@
 import { STORAGE_KEYS } from '../../constants/constants';
 // import * as authApi from '../../api/authApi.js';
 import * as authApi from '../../api/authMock.js';
-import * as navigationActions from '../../modules/Navigation/navigationActions';
+import * as navigationActions from '../../modules/navigation/navigationActions';
 import { SCENES } from '../../routes';
 import { AsyncStorage } from 'react-native';
 

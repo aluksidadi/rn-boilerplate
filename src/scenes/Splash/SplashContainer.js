@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import Routes from '../../routes.js';
 import {connect} from 'react-redux';
-import {getLastSession} from '../../modules/App/appActions';
-import {changeScene} from '../../modules/Navigation/navigationActions';
+import {getLastSession} from '../../modules/app/appActions';
+import {changeScene} from '../../modules/navigation/navigationActions';
 import Splash from './components/Splash';
 import {SCENES} from '../../routes';
 import {ActionConst} from 'react-native-router-flux';

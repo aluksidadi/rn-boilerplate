@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Home from './components/Home';
 // import {  } from './homeActions.js';
-import { changeScene } from '../../modules/Navigation/navigationActions.js';
+import { changeScene } from '../../modules/navigation/navigationActions.js';
 
 function mapStateToProps(state) {
   return {
