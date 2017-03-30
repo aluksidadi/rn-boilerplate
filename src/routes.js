@@ -4,7 +4,7 @@ import Login from './scenes/Login';
 import Home from './scenes/Home';
 import Splash from './scenes/Splash';
 import { Text } from 'react-native';
-import NavigationDrawerContainer from './modules/navigation/navigationDrawerContainer';
+import NavigationDrawerContainer from './modules/navigation/NavigationDrawerContainer';
 
 export const SCENES = {
   splash: {
