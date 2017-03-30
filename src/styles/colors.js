@@ -1,6 +1,8 @@
-export const COLOR_BLACK = '#000';
-export const COLOR_WHITE = '#fff';
+export const BLACK = '#000';
+export const WHITE = '#fff';
 
-export const COLOR_MAIN = '#333';
-export const COLOR_SECONDARY = '#999';
-export const COLOR_TERTIARY = '#ccc';
+export const PRIMARY = '#333';
+export const SECONDARY = '#999';
+export const TERTIARY = '#ccc';
+
+export const ERROR = '#cc0000';
