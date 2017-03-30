@@ -11,7 +11,7 @@ export const login = (username, password) => {
       'Content-Type': 'application/json;charset=utf-8',
     },
     body: JSON.stringify(data),
-  });
+  }).then((resp) => resp.json());
   return promise;
 }
 
@@ -26,7 +26,7 @@ export const logout = () => {
           'Content-Type': 'application/json;charset=utf-8',
           'Authorization': `Bearer ${token}`,
         },
-      });
+      }).then((resp) => resp.json());
       return promise;
     });
 }
