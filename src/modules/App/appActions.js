@@ -100,7 +100,7 @@ export const getLastSession = () => {
   return (dispatch, getState) => {
     return AsyncStorage
       .getItem(STORAGE_KEYS.token, (error, token) => {
-        if (!error) {
+        if (!error && token) {
           dispatch(createSession(token));
           dispatch(getMe());
           dispatch(navigationActions.changeScene(SCENES.home.key, ActionConst.RESET));

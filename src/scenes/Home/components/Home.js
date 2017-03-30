@@ -16,7 +16,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <View style={[commonStyles.fullScreen, commonStyles.centered]}>
+      <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
         <View style={styles.stretched}>
           <Text>Welcome Home!</Text>
         </View>

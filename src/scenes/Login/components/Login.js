@@ -27,7 +27,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <View style={[commonStyles.fullScreen, commonStyles.centered]}>
+      <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
         <View style={styles.stretched}>
           <TextInput
             style={styles.input}
