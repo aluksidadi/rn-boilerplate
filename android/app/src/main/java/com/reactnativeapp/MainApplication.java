@@ -1,4 +1,4 @@
-package com.mitti_mobile;
+package com.reactnativeapp;
 
 import android.app.Application;
 

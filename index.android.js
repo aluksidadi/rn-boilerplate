@@ -4,4 +4,4 @@ import {
   AppRegistry
 } from 'react-native';
 
-AppRegistry.registerComponent('mitti_mobile', () => Main);
+AppRegistry.registerComponent('ReactNativeApp', () => Main);
