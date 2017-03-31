@@ -17,6 +17,10 @@ const styles = StyleSheet.create({
 	menuHeader: {
 		padding: 20,
 	},
+  menuHeaderText: {
+    textAlign: 'center',
+    fontSize: 18,
+  },
 	menuItem: {
 		padding: 20,
 	},
@@ -25,7 +29,7 @@ const styles = StyleSheet.create({
 export default SideMenu = ({changeScene, logout}) => (
 	<View style={styles.container}>
 		<View style={styles.menuHeader}>
-			<Text>Menu</Text>
+			<Text style={styles.menuHeaderText}>Awesome App!</Text>
 		</View>
 		<View style={styles.menuItem}>
 			<TouchableOpacity onPress={() => changeScene(SCENES.home.key)}>

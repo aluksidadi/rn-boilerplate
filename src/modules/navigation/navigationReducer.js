@@ -25,7 +25,7 @@ export default function app(state = initialState, action) {
         ...state,
         isDrawerOpen: true,
       };
-    case NAVIGATION_OPEN_DRAWER:
+    case NAVIGATION_CLOSE_DRAWER:
       return {
         ...state,
         isDrawerOpen: false,
