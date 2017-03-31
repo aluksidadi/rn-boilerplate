@@ -5,8 +5,8 @@ import {
   APP_GET_ME_SUCCESS,
   APP_GET_ME_ERROR,
 } from './appActions';
-import { STORAGE_KEYS } from '../../constants/constants';
-import { AsyncStorage } from 'react-native';
+import {STORAGE_KEYS} from '../../constants/constants';
+import {AsyncStorage} from 'react-native';
 
 const initialState = {
   token: null,

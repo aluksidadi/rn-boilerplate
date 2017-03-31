@@ -1,4 +1,4 @@
-import { BASE_URI } from '../config';
+import {BASE_URI} from '../config';
 
 export const login = (username, password) => {
   const data = { username, password };

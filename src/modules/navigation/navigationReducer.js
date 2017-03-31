@@ -4,7 +4,7 @@ import {
   NAVIGATION_CLOSE_DRAWER,
   NAVIGATION_ON_NAVIGATE,
 } from './navigationActions';
-import { SCENES } from '../../routes';
+import {SCENES} from '../../routes';
 
 const initialState = {
   scene: SCENES.splash.key,

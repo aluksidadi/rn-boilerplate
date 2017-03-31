@@ -1,4 +1,4 @@
-import { Actions, ActionConst } from 'react-native-router-flux';
+import {Actions, ActionConst} from 'react-native-router-flux';
 
 export const NAVIGATION_CHANGE_SCENE = 'NAVIGATION_CHANGE_SCENE';
 export const NAVIGATION_ON_NAVIGATE = 'NAVIGATION_ON_NAVIGATE';

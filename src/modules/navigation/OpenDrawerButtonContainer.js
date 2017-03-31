@@ -1,7 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {openDrawer, closeDrawer} from './navigationActions';
-import {Button} from 'react-native';
+import {TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import * as colors from '../../styles/colors';
+import * as font from '../../styles/font';
 
 class OpenDrawerButtonContainer extends Component {
   static propTypes = {
@@ -13,7 +16,9 @@ class OpenDrawerButtonContainer extends Component {
   render(){
     const {isDrawerOpen, openDrawer, closeDrawer} = this.props;
     return (
-      <Button onPress={isDrawerOpen ? closeDrawer : openDrawer} title="X" />
+      <TouchableOpacity onPress={isDrawerOpen ? closeDrawer : openDrawer}>
+        <Icon name='navicon' size={font.SIZE_H1} color={colors.WHITE} />
+      </TouchableOpacity>
     );
   }
 }

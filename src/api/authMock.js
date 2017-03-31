@@ -1,5 +1,5 @@
-import { AsyncStorage } from 'react-native';
-import { STORAGE_KEYS } from '../constants/constants';
+import {AsyncStorage} from 'react-native';
+import {STORAGE_KEYS} from '../constants/constants';
 
 export const login = (username, password) => {
   const promise = new Promise((resolve, reject) => {

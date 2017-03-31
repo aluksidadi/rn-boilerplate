@@ -1,4 +1,4 @@
-import { BASE_URI } from '../config';
+import {BASE_URI} from '../config';
 
 export const get = (token) => {
   const promise = fetch(`${BASE_URI}/api/v1/me`, {

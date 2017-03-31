@@ -1,14 +1,14 @@
-import { STORAGE_KEYS } from '../../constants/constants';
+import {STORAGE_KEYS} from '../../constants/constants';
 // import * as authApi from '../../api/authApi.js';
 import * as authApi from '../../api/authMock.js';
 // import * as meApi from '../../api/meApi.js';
 import * as meApi from '../../api/meMock.js';
-import { AsyncStorage } from 'react-native';
+import {AsyncStorage} from 'react-native';
 import * as navigationActions from '../../modules/navigation/navigationActions';
-import { SCENES } from '../../routes';
+import {SCENES} from '../../routes';
 import * as colors from '../../styles/colors';
 import Snackbar from 'react-native-snackbar';
-import { ActionConst } from 'react-native-router-flux';
+import {ActionConst} from 'react-native-router-flux';
 
 export const APP_LOGOUT = 'APP_LOGOUT';
 export const APP_LOGOUT_SUCCESS = 'APP_LOGOUT_SUCCESS';

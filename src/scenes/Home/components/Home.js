@@ -1,13 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
   StyleSheet,
   View,
   Text,
 } from 'react-native';
 import commonStyles from '../../../styles/common';
-
-const styles = StyleSheet.create({
-});
 
 export default class Home extends Component {
   static propTypes = {
@@ -23,3 +20,6 @@ export default class Home extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+});

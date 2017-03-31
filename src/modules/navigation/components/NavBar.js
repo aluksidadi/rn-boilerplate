@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import commonStyles from '../../../styles/common';
 import * as colors from '../../../styles/colors';
+import * as font from '../../../styles/font';
 import {Header} from '../../../components';
 
 export default NavBar = ({leftButton, title, rightButton}) => (
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
   titleText: {
     textAlign: 'center',
     color: colors.WHITE,
-    fontSize: 18,
+    fontSize: font.SIZE_H1,
     alignSelf: 'center',
   },
   rightButton: {

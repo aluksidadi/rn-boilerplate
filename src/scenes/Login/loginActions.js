@@ -2,8 +2,8 @@
 import * as authApi from '../../api/authMock.js';
 import * as navigationActions from '../../modules/navigation/navigationActions';
 import * as appActions from '../../modules/app/appActions';
-import { SCENES } from '../../routes';
-import { ActionConst } from 'react-native-router-flux';
+import {SCENES} from '../../routes';
+import {ActionConst} from 'react-native-router-flux';
 
 export const LOGIN_SCENE_CHANGE_FORM_VALUE = 'LOGIN_SCENE_CHANGE_FORM_VALUE';
 export const LOGIN_SCENE_LOGIN = 'LOGIN_SCENE_LOGIN';

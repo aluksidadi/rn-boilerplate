@@ -6,25 +6,8 @@ import {
 	TouchableOpacity,
 } from 'react-native';
 import commonStyles from '../../../styles/common';
+import * as font from '../../../styles/font';
 import {SCENES} from '../../../routes';
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: 'column',
-		alignItems: 'stretch',
-	},
-	menuHeader: {
-		padding: 20,
-	},
-  menuHeaderText: {
-    textAlign: 'center',
-    fontSize: 18,
-  },
-	menuItem: {
-		padding: 20,
-	},
-});
 
 export default SideMenu = ({changeScene, logout}) => (
 	<View style={styles.container}>
@@ -48,3 +31,21 @@ SideMenu.propTypes = {
 	changeScene: PropTypes.func.isRequired,
 	logout: PropTypes.func.isRequired,
 };
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		flexDirection: 'column',
+		alignItems: 'stretch',
+	},
+	menuHeader: {
+		padding: 20,
+	},
+  menuHeaderText: {
+    textAlign: 'center',
+    fontSize: font.SIZE_H1,
+  },
+	menuItem: {
+		padding: 20,
+	},
+});

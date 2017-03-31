@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, {Component, PropTypes} from 'react';
 import {
   StyleSheet,
   View,
@@ -7,12 +7,6 @@ import {
   Button,
 } from 'react-native';
 import commonStyles from '../../../styles/common';
-
-const styles = StyleSheet.create({
-  input: {
-    width: 400,
-  }
-});
 
 export default class Login extends Component {
   static propTypes = {
@@ -64,3 +58,9 @@ export default class Login extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  input: {
+    width: 400,
+  }
+});
