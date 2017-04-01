@@ -11,6 +11,7 @@ import {
 import commonStyles from '../../../styles/common';
 import * as colors from '../../../styles/colors';
 import * as font from '../../../styles/font';
+import {t} from '../../../i18n';
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
 
@@ -24,11 +25,11 @@ export default HomeModal = ({isHomeModalOpen, closeHomeModal} ) => (
     <View style={[commonStyles.fullScreen, commonStyles.overlay]} />
     <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
       <View style={styles.modal}>
-        <Text style={styles.heading}>Home Modal</Text>
-        <Text style={styles.body}>Use this as your modal boilerplate</Text>
+        <Text style={styles.heading}>{t('homeScene', 'homeModalTitle')}</Text>
+        <Text style={styles.body}>{t('homeScene', 'homeModalBody')}</Text>
         
         <View style={styles.actions}>
-          <Button title={'Close Modal'} onPress={closeHomeModal} />
+          <Button title={t('homeScene', 'closeModal')} onPress={closeHomeModal} />
         </View>
       </View>
     </View>

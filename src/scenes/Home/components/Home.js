@@ -6,6 +6,7 @@ import {
   Button,
 } from 'react-native';
 import commonStyles from '../../../styles/common';
+import {t} from '../../../i18n';
 
 export default class Home extends Component {
   static propTypes = {
@@ -17,8 +18,10 @@ export default class Home extends Component {
     return (
       <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
         <View style={styles.stretched}>
-          <Text style={styles.body}>Welcome {this.props.me.profile.first_name} {this.props.me.profile.last_name}!</Text>
-          <Button title={'Open Modal'} onPress={this.props.openHomeModal} />
+          <Text style={styles.body}>
+            {t('homeScene', 'welcome', this.props.me.profile.first_name, this.props.me.profile.last_name)}
+          </Text>
+          <Button title={t('homeScene', 'openModal')} onPress={this.props.openHomeModal} />
         </View>
       </View>
     );
