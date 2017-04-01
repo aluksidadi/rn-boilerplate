@@ -39,6 +39,7 @@ $ npm install --save redux
 $ npm install --save redux-logger
 $ npm install --save redux-thunk
 $ npm install --save react-native-vector-icons
+$ npm install --save react-native-onesignal
 ```
 5. Link
 ```
@@ -47,4 +48,20 @@ $ react-native link
 6. Run
 ```
 $ react-native run-android
+```
+
+## One signal configuration
+1. Set gradle properties
+```
+RN_BOILERPLATE_ONESIGNAL_APP_ID=xxxx
+```
+
+## Release configuration
+1. Create release keys - https://facebook.github.io/react-native/docs/signed-apk-android.html 
+2. Set gradle properties
+```
+RN_BOILERPLATE_RELEASE_STORE_FILE=rn-boilerplate-release-key.keystore
+RN_BOILERPLATE_RELEASE_KEY_ALIAS=rn-boilerplate-key-alias
+RN_BOILERPLATE_RELEASE_STORE_PASSWORD=password
+RN_BOILERPLATE_RELEASE_KEY_PASSWORD=password
 ```

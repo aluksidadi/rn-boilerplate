@@ -95,6 +95,8 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        manifestPlaceholders = [onesignal_app_id: RN_BOILERPLATE_ONESIGNAL_APP_ID,
+                                onesignal_google_project_number: "REMOTE"]
     }
     splits {
         abi {
@@ -104,10 +106,21 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+    signingConfigs {
+        release {
+            if (project.hasProperty('RN_BOILERPLATE_RELEASE_STORE_FILE')) {
+                storeFile file(RN_BOILERPLATE_RELEASE_STORE_FILE)
+                storePassword RN_BOILERPLATE_RELEASE_STORE_PASSWORD
+                keyAlias RN_BOILERPLATE_RELEASE_KEY_ALIAS
+                keyPassword RN_BOILERPLATE_RELEASE_KEY_PASSWORD
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
