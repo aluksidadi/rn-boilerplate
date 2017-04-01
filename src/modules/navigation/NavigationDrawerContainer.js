@@ -19,8 +19,6 @@ class NavigationDrawerContainer extends Component {
     return (
       <Drawer
         ref="navigation"
-        open={this.props.isDrawerOpen}
-        onOpen={this.props.openDrawer}
         onClose={this.props.closeDrawer}
         type="displace"
         content={
@@ -29,7 +27,7 @@ class NavigationDrawerContainer extends Component {
             logout={this.props.logout} />
         }
         tapToClose={true}
-        openDrawerOffset={0.2}
+        openDrawerOffset={0.6}
         panCloseMask={0.2}
         negotiatePan={true}
         tweenHandler={(ratio) => ({

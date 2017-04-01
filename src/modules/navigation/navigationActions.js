@@ -18,7 +18,7 @@ export const changeScene = (scene, type = ActionConst.PUSH) => {
 
 export const onNavigate = () => {
   return (dispatch, getState) => {
-    console.log('onNavigate', arguments);
+    // console.log('onNavigate', arguments);
     dispatch({
       type: NAVIGATION_ON_NAVIGATE,
     });
