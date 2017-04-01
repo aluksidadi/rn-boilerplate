@@ -1,24 +1,79 @@
-import {AsyncStorage} from 'react-native';
-import {STORAGE_KEYS} from '../constants/constants';
-
 export const login = (username, password) => {
-  const promise = new Promise((resolve, reject) => {
-    resolve({
+  return new Promise((resolve, reject) => {
+    const respData = {
       data: {
         token: "a94a8fe5ccb19ba61c4c0873d391e987982fbbd3",
       },
-    });
+    };
+    const respDataJson = JSON.stringify(respData);
+    const resp = {
+      ok: true,
+      status: 200,
+      body: respDataJson,
+      json: () => {
+        return new Promise((resolve, reject) => {
+          try {
+            const value = JSON.parse(respDataJson);
+            resolve(value);
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    };
+
+    resolve(resp);
   });
-  return promise;
+}
+export const loginBadRequest = (username, password) => {
+  return new Promise((resolve, reject) => {
+    const respData = {
+      code: 888,
+      message: "Invalid username/password",
+    };
+    const respDataJson = JSON.stringify(respData);
+    const resp = {
+      ok: false,
+      status: 400,
+      body: respDataJson,
+      json: () => {
+        return new Promise((resolve, reject) => {
+          try {
+            const value = JSON.parse(respDataJson);
+            resolve(value);
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    };
+
+    resolve(resp);
+  });
 }
 
 export const logout = () => {
-  return AsyncStorage
-    .getItem(STORAGE_KEYS.token)
-    .then(token => {
-      const promise = new Promise((resolve, reject) => {
-        resolve({data: null});
-      });
-      return promise;
-    });
+  return new Promise((resolve, reject) => {
+    const respData = {
+      data: null,
+    };
+    const respDataJson = JSON.stringify(respData);
+    const resp = {
+      ok: true,
+      status: 200,
+      body: respDataJson,
+      json: () => {
+        return new Promise((resolve, reject) => {
+          try {
+            const value = JSON.parse(respDataJson);
+            resolve(value);
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    };
+
+    resolve(resp);
+  });
 }

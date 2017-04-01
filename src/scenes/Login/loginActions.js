@@ -34,9 +34,12 @@ export const login = (username, password) => {
   return (dispatch, getState) => {
     dispatch(_login());
 
+    // return authApi.loginBadRequest(username, password) // uncomment this to test bad request on login
     return authApi.login(username, password)
+      .then((resp) => dispatch(appActions.processApiResponse(resp)))
       .then(
         (resp) => {
+          console.log('===', resp);
           const { token } = resp.data;
 
           dispatch(_loginSuccess(token));
@@ -49,7 +52,6 @@ export const login = (username, password) => {
       )
       .catch((error) => {
         dispatch(_loginError(error));
-        dispatch(appActions.onError(error));
         return error;
       });
 

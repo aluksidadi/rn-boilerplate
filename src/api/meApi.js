@@ -1,7 +1,7 @@
 import {BASE_URI} from '../config';
 
 export const get = (token) => {
-  const promise = fetch(`${BASE_URI}/api/v1/me`, {
+  return fetch(`${BASE_URI}/api/v1/me`, {
     method: 'GET',
     headers: {
       'Accept': 'application/json',
@@ -9,5 +9,4 @@ export const get = (token) => {
       'Authorization': `Bearer ${token}`,
     },
   }).then((resp) => resp.json());
-  return promise;
 }

@@ -21,6 +21,7 @@ export const APP_GET_ME = 'APP_GET_ME';
 export const APP_GET_ME_SUCCESS = 'APP_GET_ME_SUCCESS';
 export const APP_GET_ME_ERROR = 'APP_GET_ME_ERROR';
 export const APP_GET_LAST_SESSION = 'APP_GET_LAST_SESSION';
+export const APP_PROCESS_HTTP_RESPONSE = 'APP_PROCESS_HTTP_RESPONSE';
 
 const _logout = () => ({
   type: APP_LOGOUT,
@@ -41,6 +42,7 @@ export const logout = () => {
     dispatch(_logout());
 
     return authApi.logout(token)
+      .then((resp) => dispatch(processApiResponse(resp)))
       .then(
         (resp) => {
           dispatch(navigationActions.changeScene(SCENES.login.key, ActionConst.RESET));
@@ -79,7 +81,9 @@ export const getMe = () => {
     const { token } = getState().app;
     dispatch(_getMe());
 
+    // return meApi.getUnauthorized(token) // to test invalid session
     return meApi.get(token)
+      .then((resp) => dispatch(processApiResponse(resp)))
       .then(
         (resp) => {
           const { me } = resp.data;
@@ -89,7 +93,6 @@ export const getMe = () => {
       )
       .catch((error) => {
         dispatch(_getMeError(error));
-        dispatch(onError(error));
         return error;
       });
 
@@ -157,5 +160,44 @@ export const onMessage = (message) => {
             onPress: () => {},
         },
     });
+  }
+}
+
+export const processApiResponse = (resp) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: APP_PROCESS_HTTP_RESPONSE,
+      resp,
+    });
+
+    if (resp.ok) {
+      return resp.json();
+    } else {
+      switch (resp.status) {
+        case 401:
+          // unauthorized
+          dispatch(onError('Session is expired. You have been logged out'));
+          return dispatch(logout());
+          break;
+        case 403:
+        case 404:
+        default:
+          // any other non 2xx
+          return new Promise((resolve, reject) => {
+            resp
+              .json()
+              .then((error) => {
+                const {code, message} = error;
+                dispatch(onError(message));
+                reject(message);
+                return message;
+              })
+              .catch((error) => {
+                reject(error);
+                return error;
+              });
+          });
+      }
+    }
   }
 }

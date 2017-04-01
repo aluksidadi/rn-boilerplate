@@ -1,6 +1,6 @@
 export const get = (token) => {
-  const promise = new Promise((resolve, reject) => {
-    resolve({
+  return new Promise((resolve, reject) => {
+    const respData = {
       data: {
         me: {
           id: "3aa4d349-a31c-4788-a679-5cb506d839b4",
@@ -13,7 +13,50 @@ export const get = (token) => {
           },
         },
       },
-    });
+    };
+    const respDataJson = JSON.stringify(respData);
+    const resp = {
+      ok: true,
+      status: 200,
+      body: respDataJson,
+      json: () => {
+        return new Promise((resolve, reject) => {
+          try {
+            const value = JSON.parse(respDataJson);
+            resolve(value);
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    };
+
+    resolve(resp);
   });
-  return promise;
+}
+export const getUnauthorized = (token) => {
+  return new Promise((resolve, reject) => {
+    const respData = {
+      code: 777,
+      message: "Session has expired or invalid",
+    };
+    const respDataJson = JSON.stringify(respData);
+    const resp = {
+      ok: false,
+      status: 401,
+      body: respDataJson,
+      json: () => {
+        return new Promise((resolve, reject) => {
+          try {
+            const value = JSON.parse(respDataJson);
+            resolve(value);
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+    };
+
+    resolve(resp);
+  });
 }
