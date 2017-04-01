@@ -11,7 +11,7 @@ const initialState = {
   isDrawerOpen: false,
 };
 
-export default function app(state = initialState, action) {
+export default function navigation(state = initialState, action) {
   switch (action.type) {
     case NAVIGATION_CHANGE_SCENE:
       const { scene } = action;

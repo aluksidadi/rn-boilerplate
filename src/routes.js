@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Scene, Schema, TabBar, Actions} from 'react-native-router-flux';
+import {Router, Scene, Actions} from 'react-native-router-flux';
 import Login from './scenes/Login';
 import Home from './scenes/Home';
 import Splash from './scenes/Splash';
