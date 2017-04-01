@@ -16,7 +16,7 @@ export default class Home extends Component {
     return (
       <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
         <View style={styles.stretched}>
-          <Text>Welcome Home!</Text>
+          <Text style={styles.body}>Welcome Home!</Text>
           <Button title={'Open Modal'} onPress={this.props.openHomeModal} />
         </View>
       </View>
@@ -25,4 +25,7 @@ export default class Home extends Component {
 }
 
 const styles = StyleSheet.create({
+  body: {
+    marginBottom: 20,
+  },
 });
