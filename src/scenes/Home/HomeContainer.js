@@ -3,6 +3,7 @@ import {View} from 'react-native';
 import {connect} from 'react-redux';
 import Home from './components/Home';
 import HomeModal from './components/HomeModal';
+import {SpinnerOverlay} from '../../components'
 import {openHomeModal, closeHomeModal} from './homeActions.js';
 import {changeScene} from '../../modules/navigation/navigationActions.js';
 import OpenDrawerButtonContainer from '../../modules/navigation/OpenDrawerButtonContainer';
@@ -11,6 +12,7 @@ import commonStyles from '../../styles/common';
 
 class HomeContainer extends Component {
   static propTypes = {
+    me: PropTypes.object,
     isHomeModalOpen: PropTypes.bool.isRequired,
     changeScene: PropTypes.func.isRequired,
     openHomeModal: PropTypes.func.isRequired,
@@ -26,12 +28,17 @@ class HomeContainer extends Component {
   };
 
   render() {
-    const {isHomeModalOpen, openHomeModal, closeHomeModal} = this.props;
+    const {me, isHomeModalOpen, openHomeModal, closeHomeModal} = this.props;
+
+    if (!me) {
+      return <SpinnerOverlay />
+    }
 
     return (
       <View style={commonStyles.fullScreen}>
         <HomeModal isHomeModalOpen={isHomeModalOpen} closeHomeModal={closeHomeModal} />
         <Home
+          me={me}
           openHomeModal={openHomeModal} />
       </View>
     );
@@ -41,6 +48,7 @@ class HomeContainer extends Component {
 function mapStateToProps(state) {
   return {
     ...state.homeScene,
+    me: state.app.me,
   };
 }
 

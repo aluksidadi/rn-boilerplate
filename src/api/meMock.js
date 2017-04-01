@@ -31,7 +31,10 @@ export const get = (token) => {
       },
     };
 
-    resolve(resp);
+    // simulate network delay
+    setTimeout(() => {
+      resolve(resp);
+    }, 2000);
   });
 }
 export const getUnauthorized = (token) => {
@@ -57,6 +60,9 @@ export const getUnauthorized = (token) => {
       },
     };
 
-    resolve(resp);
+    // simulate network delay
+    setTimeout(() => {
+      resolve(resp);
+    }, 2000);
   });
 }

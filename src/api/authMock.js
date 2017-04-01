@@ -22,7 +22,10 @@ export const login = (username, password) => {
       },
     };
 
-    resolve(resp);
+    // simulate network delay
+    setTimeout(() => {
+      resolve(resp);
+    }, 2000);
   });
 }
 export const loginBadRequest = (username, password) => {
@@ -48,7 +51,10 @@ export const loginBadRequest = (username, password) => {
       },
     };
 
-    resolve(resp);
+    // simulate network delay
+    setTimeout(() => {
+      resolve(resp);
+    }, 2000);
   });
 }
 
@@ -74,6 +80,9 @@ export const logout = () => {
       },
     };
 
-    resolve(resp);
+    // simulate network delay
+    setTimeout(() => {
+      resolve(resp);
+    }, 2000);
   });
 }
