@@ -14,7 +14,7 @@ import * as font from '../../../styles/font';
 import {t} from '../../../i18n';
 import dictionary from '../dictionary';
 
-const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
+const {width: windowWidth, height: windowHeight} = Dimensions.get("window");
 
 export default HomeModal = ({isHomeModalOpen, closeHomeModal} ) => (
   <Modal

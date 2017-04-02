@@ -15,36 +15,42 @@ const initialState = {
 
 export default function auth(state = initialState, action) {
   switch (action.type) {
-    case AUTH_CREATE_SESSION:
-      const { token } = action;
+    case AUTH_CREATE_SESSION: {
+      const {token} = action;
       AsyncStorage.setItem(STORAGE_KEYS.token, token);
       return {
         ...state,
         token,
       };
-    case AUTH_DESTROY_SESSION:
+    }
+    case AUTH_DESTROY_SESSION: {
       AsyncStorage.removeItem(STORAGE_KEYS.token);
       return {
         ...state,
         token: null,
       };
-    case AUTH_LOGIN:
+    }
+    case AUTH_LOGIN: {
       return {
         ...state,
         isLoggingIn: true,
       };
-    case AUTH_LOGIN_SUCCESS:
+    }
+    case AUTH_LOGIN_SUCCESS: {
       return {
         ...state,
         isLoggingIn: false,
       };
-    case AUTH_LOGIN_ERROR:
+    }
+    case AUTH_LOGIN_ERROR: {
       return {
         ...state,
         isLoggingIn: false
       };
-    default:
+    }
+    default: {
       // nothing to do
       return state;
+    }
   }
 }

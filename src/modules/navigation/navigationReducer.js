@@ -13,30 +13,35 @@ const initialState = {
 
 export default function navigation(state = initialState, action) {
   switch (action.type) {
-    case NAVIGATION_CHANGE_SCENE:
-      const { scene } = action;
+    case NAVIGATION_CHANGE_SCENE: {
+      const {scene} = action;
       return {
         ...state,
         scene,
         isDrawerOpen: false,
       };
-    case NAVIGATION_OPEN_DRAWER:
+    }
+    case NAVIGATION_OPEN_DRAWER: {
       return {
         ...state,
         isDrawerOpen: true,
       };
-    case NAVIGATION_CLOSE_DRAWER:
+    }
+    case NAVIGATION_CLOSE_DRAWER: {
       return {
         ...state,
         isDrawerOpen: false,
       };
-    case NAVIGATION_ON_NAVIGATE:
+    }
+    case NAVIGATION_ON_NAVIGATE: {
       return {
         ...state,
         isDrawerOpen: false,
       };
-    default:
+    }
+    default: {
       // nothing to do
       return state;
+    }
   }
 }

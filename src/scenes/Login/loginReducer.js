@@ -14,8 +14,8 @@ const initialState = {
 
 export default function loginScene(state = initialState, action) {
   switch (action.type) {
-    case LOGIN_SCENE_CHANGE_FORM_VALUE:
-      const { name, value } = action;
+    case LOGIN_SCENE_CHANGE_FORM_VALUE: {
+      const {name, value} = action;
       return {
         ...state,
         form: {
@@ -23,16 +23,19 @@ export default function loginScene(state = initialState, action) {
           [name]: value,
         },
       };
-    case AUTH_LOGIN_SUCCESS:
+    }
+    case AUTH_LOGIN_SUCCESS: {
       return {
         ...state,
         form: {
           username: '',
           password: '',
         },
-    };
-    default:
+      };
+    }
+    default: {
       // nothing to do
       return state;
+    }
   }
 }

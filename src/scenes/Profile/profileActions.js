@@ -40,8 +40,8 @@ const _getProfileError = (error) => ({
 
 export const getProfile = (id) => {
   return (dispatch, getState) => {
-    const { token } = getState().app;
-    const { me } = getState().me;
+    const {token} = getState().app;
+    const {me} = getState().me;
 
     if (!id || id === me.id) {
       dispatch(_getProfileSuccess(me, true));
@@ -54,7 +54,7 @@ export const getProfile = (id) => {
       //   .then((resp) => dispatch(appActions.processApiResponse(resp)))
       //   .then(
       //     (resp) => {
-      //       const { user } = resp.data;
+      //       const {user} = resp.data;
       //       dispatch(_getProfileSuccess(user, false));
       //       return resp;
       //     }
@@ -102,7 +102,7 @@ export const saveProfile = () => {
         .then((resp) => dispatch(appActions.processApiResponse(resp)))
         .then(
           (resp) => {
-            const { me } = resp.data;
+            const {me} = resp.data;
             dispatch(_saveProfileSuccess(me));
             dispatch(meActions.setMe(me));
             return resp;
@@ -123,7 +123,7 @@ export const saveProfile = () => {
       //   .then((resp) => dispatch(appActions.processApiResponse(resp)))
       //   .then(
       //     (resp) => {
-      //       const { user } = resp.data;
+      //       const {user} = resp.data;
       //       dispatch(_getProfileSuccess(user));
       //       return resp;
       //     }

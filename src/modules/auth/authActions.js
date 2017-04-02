@@ -44,7 +44,7 @@ export const login = (username, password) => {
       .then(
         (resp) => {
           console.log('===', resp);
-          const { token } = resp.data;
+          const {token} = resp.data;
 
           dispatch(_loginSuccess(token));
           dispatch(createSession(token));
@@ -78,7 +78,7 @@ const _logoutError = (error) => ({
 
 export const logout = () => {
   return (dispatch, getState) => {
-    const { token } = getState().app;
+    const {token} = getState().app;
     dispatch(_logout());
 
     return authApi.logout(token)

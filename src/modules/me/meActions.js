@@ -23,7 +23,7 @@ const _getMeError = (error) => ({
 
 export const getMe = () => {
   return (dispatch, getState) => {
-    const { token } = getState().app;
+    const {token} = getState().app;
     dispatch(_getMe());
 
     // return meApi.getUnauthorized(token) // to test invalid session
@@ -31,7 +31,7 @@ export const getMe = () => {
       .then((resp) => dispatch(appActions.processApiResponse(resp)))
       .then(
         (resp) => {
-          const { me } = resp.data;
+          const {me} = resp.data;
           dispatch(_getMeSuccess(me));
           return resp;
         }

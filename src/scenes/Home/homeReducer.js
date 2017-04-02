@@ -1,6 +1,6 @@
 import {
-  HOME_MODAL_OPEN,
-  HOME_MODAL_CLOSE,
+  HOME_SCENE_MODAL_OPEN,
+  HOME_SCENE_MODAL_CLOSE,
 } from './homeActions';
 
 const initialState = {
@@ -9,19 +9,21 @@ const initialState = {
 
 export default function homeScene(state = initialState, action) {
   switch (action.type) {
-    case HOME_MODAL_OPEN:
-      const { component } = action;
+    case HOME_SCENE_MODAL_OPEN: {
       return {
         ...state,
         isHomeModalOpen: true,
       };
-    case HOME_MODAL_CLOSE:
+    }
+    case HOME_SCENE_MODAL_CLOSE: {
       return {
         ...state,
         isHomeModalOpen: false,
       };
-    default:
+    }
+    default: {
       // nothing to do
       return state;
+    }
   }
 }

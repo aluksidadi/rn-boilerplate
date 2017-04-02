@@ -24,7 +24,7 @@ const initialState = {
 export default function profileScene(state = initialState, action) {
   switch (action.type) {
     case PROFILE_SCENE_CHANGE_FORM_VALUE: {
-      const { name, value } = action;
+      const {name, value} = action;
       return {
         ...state,
         form: {
