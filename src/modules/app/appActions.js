@@ -4,6 +4,8 @@ import * as authActions from '../../modules/auth/authActions';
 import {SCENES} from '../../routes';
 import * as colors from '../../styles/colors';
 import Snackbar from 'react-native-snackbar';
+import dictionary from './dictionary';
+import {t} from '../../i18n';
 
 export const APP_ON_ERROR = 'APP_ON_ERROR';
 export const APP_ON_MESSAGE = 'APP_ON_MESSAGE';
@@ -102,7 +104,7 @@ export const processApiResponse = (resp) => {
       switch (resp.status) {
         case 401:
           // unauthorized
-          dispatch(onError('Session is expired. You have been logged out'));
+          dispatch(onError(t(dictionary.sessionExpired)));
           return dispatch(authActions.logout());
           break;
         case 403:

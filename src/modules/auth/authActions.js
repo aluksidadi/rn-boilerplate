@@ -6,6 +6,8 @@ import * as navigationActions from '../navigation/navigationActions';
 import * as appActions from '../app/appActions';
 import {SCENES} from '../../routes';
 import {ActionConst} from 'react-native-router-flux';
+import dictionary from './dictionary';
+import {t} from '../../i18n';
 
 export const AUTH_LOGIN = 'AUTH_LOGIN';
 export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS';
@@ -47,7 +49,7 @@ export const login = (username, password) => {
           dispatch(createSession(token));
           dispatch(appActions.getMe());
           dispatch(navigationActions.changeScene(SCENES.home.key, ActionConst.RESET));
-          dispatch(appActions.onMessage("Login successful"));
+          dispatch(appActions.onMessage(t(dictionary.loginSuccess)));
           return resp;
         }
       )

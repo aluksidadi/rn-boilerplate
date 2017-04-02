@@ -10,6 +10,7 @@ import OpenDrawerButtonContainer from '../../modules/navigation/OpenDrawerButton
 import NavBar from '../../modules/navigation/components/NavBar';
 import commonStyles from '../../styles/common';
 import {t} from '../../i18n';
+import dictionary from './dictionary';
 
 class HomeContainer extends Component {
   static propTypes = {
@@ -23,7 +24,7 @@ class HomeContainer extends Component {
   static renderNavigationBar = (props) => {
     return (
       <NavBar
-        title={t('homeScene', 'home')}
+        title={t(dictionary.home)}
         leftButton={<OpenDrawerButtonContainer />} />
     );
   };

@@ -1,5 +1,3 @@
-import dictionary from './dictionary';
-
 const defaultLocale = 'en_US';
 
 const format = (template, ...args) => {
@@ -19,11 +17,11 @@ class I18n {
     this.locale = locale;
   }
 
-  t = (parent, key, ...vars) => {
+  t = (dictionary, ...vars) => {
     try {
-      return format(dictionary[parent][key][this.locale], ...vars);
+      return format(dictionary[this.locale], ...vars);
     } catch (error) {
-      return `*${parent}.${key}*`;
+      return '';
     }
   }
 }
@@ -35,6 +33,6 @@ export const setLocale = (locale) => {
   i18n.setLocale(locale);
 }
 
-export const t = (parent, key, ...vars) => {
-  return i18n.t(parent, key, ...vars);
+export const t = (dictionary, ...vars) => {
+  return i18n.t(dictionary, ...vars);
 }

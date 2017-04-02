@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import commonStyles from '../../../styles/common';
 import {t} from '../../../i18n';
+import dictionary from '../dictionary';
 
 export default class Home extends Component {
   static propTypes = {
@@ -19,9 +20,9 @@ export default class Home extends Component {
       <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
         <View style={styles.stretched}>
           <Text style={styles.body}>
-            {t('homeScene', 'welcome', this.props.me.profile.first_name, this.props.me.profile.last_name)}
+            {t(dictionary.welcome, this.props.me.profile.first_name, this.props.me.profile.last_name)}
           </Text>
-          <Button title={t('homeScene', 'openModal')} onPress={this.props.openHomeModal} />
+          <Button title={t(dictionary.openModal)} onPress={this.props.openHomeModal} />
         </View>
       </View>
     );

@@ -12,6 +12,7 @@ import commonStyles from '../../../styles/common';
 import * as colors from '../../../styles/colors';
 import * as font from '../../../styles/font';
 import {t} from '../../../i18n';
+import dictionary from '../dictionary';
 
 const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
 
@@ -25,11 +26,11 @@ export default HomeModal = ({isHomeModalOpen, closeHomeModal} ) => (
     <View style={[commonStyles.fullScreen, commonStyles.overlay]} />
     <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
       <View style={styles.modal}>
-        <Text style={styles.heading}>{t('homeScene', 'homeModalTitle')}</Text>
-        <Text style={styles.body}>{t('homeScene', 'homeModalBody')}</Text>
+        <Text style={styles.heading}>{t(dictionary.homeModalTitle)}</Text>
+        <Text style={styles.body}>{t(dictionary.homeModalBody)}</Text>
         
         <View style={styles.actions}>
-          <Button title={t('homeScene', 'closeModal')} onPress={closeHomeModal} />
+          <Button title={t(dictionary.closeModal)} onPress={closeHomeModal} />
         </View>
       </View>
     </View>

@@ -9,25 +9,26 @@ import commonStyles from '../../../styles/common';
 import * as font from '../../../styles/font';
 import {SCENES} from '../../../routes';
 import {t} from '../../../i18n';
+import dictionary from '../dictionary';
 
 export default SideMenu = ({changeScene, logout}) => (
 	<View style={styles.container}>
 		<View style={styles.menuHeader}>
 			<Text style={styles.menuHeaderText}>
-				{t('navigation', 'navTitle')}
+				{t(dictionary.navTitle)}
 			</Text>
 		</View>
 		<View style={styles.menuItem}>
 			<TouchableOpacity onPress={() => changeScene(SCENES.home.key)}>
 				<Text>
-					{t('navigation', 'home')}
+					{t(dictionary.home)}
 				</Text>
 			</TouchableOpacity>
 		</View>
 		<View style={styles.menuItem}>
 			<TouchableOpacity onPress={logout}>
 				<Text>
-					{t('navigation', 'logout')}
+					{t(dictionary.logout)}
 				</Text>
 			</TouchableOpacity>
 		</View>

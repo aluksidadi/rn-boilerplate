@@ -15,17 +15,19 @@ class SplashContainer extends Component {
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.props
-        .getLastSession()
-        .then(token => {
-          if (token) {
+    this.props
+      .getLastSession()
+      .then(token => {
+        if (token) {
+          setTimeout(() => {
             this.props.changeScene(SCENES.home.key, ActionConst.RESET);
-          } else {
+          }, SPLASH_WAIT);
+        } else {
+          setTimeout(() => {
             this.props.changeScene(SCENES.login.key, ActionConst.RESET);
-          }
-        });
-    }, SPLASH_WAIT);
+          }, SPLASH_WAIT);
+        }
+      });
   }
 
   render() {

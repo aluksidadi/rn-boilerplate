@@ -9,6 +9,7 @@ import {
 import {SpinnerOverlay} from '../../../components';
 import commonStyles from '../../../styles/common';
 import {t} from '../../../i18n';
+import dictionary from '../dictionary';
 
 export default class Login extends Component {
   static propTypes = {
@@ -35,7 +36,7 @@ export default class Login extends Component {
             autoCorrect={false}
             autoFocus={true}
             keyboardType={'email-address'}
-            placeholder={t('loginScene', 'email')}/>
+            placeholder={t(dictionary.email)}/>
         </View>
         <View>
           <TextInput
@@ -47,15 +48,15 @@ export default class Login extends Component {
             autoCorrect={false}
             autoFocus={false}
             keyboardType={'default'}
-            placeholder={t('loginScene', 'password')}/>
+            placeholder={t(dictionary.password)}/>
         </View>
         <View>
           <Button
             style={styles.input}
             onPress={() => this.props.login(this.props.form.username, this.props.form.password)}
             disabled={this.props.isLoggingIn || !this.props.form.username || !this.props.form.password}
-            title={t('loginScene', 'login')}
-            accessibilityLabel={t('loginScene', 'login')}
+            title={t(dictionary.login)}
+            accessibilityLabel={t(dictionary.login)}
           />
         </View>
       </View>
