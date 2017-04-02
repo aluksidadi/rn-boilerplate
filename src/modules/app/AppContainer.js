@@ -8,7 +8,6 @@ import {setLocale} from '../../i18n';
 class AppContainer extends Component {
   static propTypes = {
     me: PropTypes.object,
-    isFetchingMe: PropTypes.bool,
   };
 
   // componentWillMount() {
@@ -31,7 +30,7 @@ class AppContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.me === null && nextProps.me) {
-      // this._oneSignalSetup(this.props);
+      // this._oneSignalSetup(nextProps);
       setLocale(nextProps.me.locale);
     }
   }
@@ -87,6 +86,7 @@ class AppContainer extends Component {
 function mapStateToProps(state) {
   return {
     ...state.app,
+    me: state.me.me,
   };
 }
 

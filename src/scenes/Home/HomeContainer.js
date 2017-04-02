@@ -50,7 +50,7 @@ class HomeContainer extends Component {
 function mapStateToProps(state) {
   return {
     ...state.homeScene,
-    me: state.app.me,
+    me: state.me.me,
   };
 }
 

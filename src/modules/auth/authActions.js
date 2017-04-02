@@ -4,6 +4,7 @@ import * as authApi from '../../api/authMock.js';
 import {AsyncStorage} from 'react-native';
 import * as navigationActions from '../navigation/navigationActions';
 import * as appActions from '../app/appActions';
+import * as meActions from '../me/meActions';
 import {SCENES} from '../../routes';
 import {ActionConst} from 'react-native-router-flux';
 import dictionary from './dictionary';
@@ -47,7 +48,7 @@ export const login = (username, password) => {
 
           dispatch(_loginSuccess(token));
           dispatch(createSession(token));
-          dispatch(appActions.getMe());
+          dispatch(meActions.getMe());
           dispatch(navigationActions.changeScene(SCENES.home.key, ActionConst.RESET));
           dispatch(appActions.onMessage(t(dictionary.loginSuccess)));
           return resp;
@@ -110,7 +111,7 @@ export const getLastSession = () => {
       .getItem(STORAGE_KEYS.token, (error, token) => {
         if (!error && token) {
           dispatch(createSession(token));
-          dispatch(appActions.getMe());
+          dispatch(meActions.getMe());
         }
         return token;
       });
