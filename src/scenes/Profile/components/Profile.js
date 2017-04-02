@@ -52,7 +52,7 @@ export default class Profile extends Component {
                 onChangeText={(firstName) => changeFormValue('firstName', firstName)}
                 autoCapitalize={'none'}
                 autoCorrect={false}
-                autoFocus={true}
+                autoFocus={false}
                 placeholder={t(dictionary.firstName)}/>
             : <Text style={styles.info}>First Name: {user.profile.first_name}</Text>
           }
@@ -63,10 +63,10 @@ export default class Profile extends Component {
             ? <TextInput
                 style={styles.input}
                 value={form.lastName}
-                onChangeText={(lastName) => tchangeFormValue('lastName', lastName)}
+                onChangeText={(lastName) => changeFormValue('lastName', lastName)}
                 autoCapitalize={'none'}
                 autoCorrect={false}
-                autoFocus={true}
+                autoFocus={false}
                 placeholder={t(dictionary.lastName)}/>
             : <Text style={styles.info}>Last Name: {user.profile.last_name}</Text>
           }
@@ -91,7 +91,7 @@ export default class Profile extends Component {
               </View>
             : <View style={styles.actions}>
                 <Button
-                  style={styles.input}
+                  style={styles.button}
                   onPress={() => toggleEditMode(true)}
                   title={t(dictionary.editProfile)}
                   accessibilityLabel={t(dictionary.editProfile)}
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
   input: {
   },
   button: {
-    marginRight: 10,
   },
   actions: {
     marginTop: 10,

@@ -8,5 +8,17 @@ export const get = (token) => {
       'Content-Type': 'application/json;charset=utf-8',
       'Authorization': `Bearer ${token}`,
     },
-  }).then((resp) => resp.json());
+  });
+}
+
+export const updateMyProfile = (token, profile) => {
+  return fetch(`${BASE_URI}/api/v1/me/profile`, {
+    method: 'PUT',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json;charset=utf-8',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify(profile),
+  });
 }

@@ -4,6 +4,9 @@ import {
   PROFILE_SCENE_GET,
   PROFILE_SCENE_GET_SUCCESS,
   PROFILE_SCENE_GET_ERROR,
+  PROFILE_SCENE_SAVE,
+  PROFILE_SCENE_SAVE_SUCCESS,
+  PROFILE_SCENE_SAVE_ERROR,
 } from './profileActions';
 
 const initialState = {
@@ -20,7 +23,7 @@ const initialState = {
 
 export default function profileScene(state = initialState, action) {
   switch (action.type) {
-    case PROFILE_SCENE_CHANGE_FORM_VALUE:
+    case PROFILE_SCENE_CHANGE_FORM_VALUE: {
       const { name, value } = action;
       return {
         ...state,
@@ -29,7 +32,8 @@ export default function profileScene(state = initialState, action) {
           [name]: value,
         },
       };
-    case PROFILE_SCENE_TOGGLE_EDIT_MODE:
+    }
+    case PROFILE_SCENE_TOGGLE_EDIT_MODE: {
       const {isEditMode} = action;
       return {
         ...state,
@@ -40,12 +44,14 @@ export default function profileScene(state = initialState, action) {
         },
         isEditMode,
       };
-    case PROFILE_SCENE_GET:
+    }
+    case PROFILE_SCENE_GET: {
       return {
         ...state,
         isFetchingProfile: true,
       };
-    case PROFILE_SCENE_GET_SUCCESS:
+    }
+    case PROFILE_SCENE_GET_SUCCESS: {
       const {user, isEditable} = action;
       return {
         ...state,
@@ -53,13 +59,37 @@ export default function profileScene(state = initialState, action) {
         isEditable,
         isFetchingProfile: false,
       };
-    case PROFILE_SCENE_GET_ERROR:
+    }
+    case PROFILE_SCENE_GET_ERROR: {
       return {
         ...state,
         isFetchingProfile: false,
       };
-    default:
+    }
+    case PROFILE_SCENE_SAVE: {
+      return {
+        ...state,
+        isSavingProfile: true,
+      };
+    }
+    case PROFILE_SCENE_SAVE_SUCCESS: {
+      const {user} = action;
+      return {
+        ...state,
+        user,
+        isSavingProfile: false,
+        isEditMode: false,
+      };
+    }
+    case PROFILE_SCENE_SAVE_ERROR: {
+      return {
+        ...state,
+        isSavingProfile: false,
+      };
+    }
+    default: {
       // nothing to do
       return state;
+    }
   }
 }

@@ -2,6 +2,7 @@
 import * as meApi from '../../api/meMock.js';
 import * as appActions from '../app/appActions';
 
+export const ME_SET = 'ME_SET';
 export const ME_GET = 'ME_GET';
 export const ME_GET_SUCCESS = 'ME_GET_SUCCESS';
 export const ME_GET_ERROR = 'ME_GET_ERROR';
@@ -43,3 +44,8 @@ export const getMe = () => {
     return promise;
   };
 };
+
+export const setMe = (me) => ({
+  type: ME_SET,
+  me,
+});

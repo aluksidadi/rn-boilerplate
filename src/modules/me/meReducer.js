@@ -2,6 +2,7 @@ import {
   ME_GET,
   ME_GET_SUCCESS,
   ME_GET_ERROR,
+  ME_SET,
 } from './meActions';
 import {
   AUTH_DESTROY_SESSION,
@@ -14,30 +15,42 @@ const initialState = {
 
 export default function app(state = initialState, action) {
   switch (action.type) {
-    case AUTH_DESTROY_SESSION:
+    case AUTH_DESTROY_SESSION: {
       return {
         ...state,
         me: null,
       };
-    case ME_GET:
+    }
+    case ME_GET: {
       return {
         ...state,
         isFetchingMe: true,
       };
-    case ME_GET_SUCCESS:
-      const { me } = action;
+    }
+    case ME_GET_SUCCESS: {
+      const {me} = action;
       return {
         ...state,
         isFetchingMe: false,
         me,
       };
-    case ME_GET_ERROR:
+    }
+    case ME_GET_ERROR: {
       return {
         ...state,
         isFetchingMe: false,
       };
-    default:
+    }
+    case ME_SET: {
+      const {me} = action;
+      return {
+        ...state,
+        me,
+      };
+    }
+    default: {
       // nothing to do
       return state;
+    }
   }
 }
