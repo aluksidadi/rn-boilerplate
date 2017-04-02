@@ -1,3 +1,7 @@
+import dictionary from './dictionary';
+
+const defaultLocale = 'en_US';
+
 const format = (template, ...args) => {
   return template.replace(/{(\d+)}/g, function (match, number) {
     return typeof args[number] != 'undefined' ?
@@ -7,14 +11,17 @@ const format = (template, ...args) => {
 };
 
 class I18n {
-  constructor(locale, dictionary) {
+  constructor(locale) {
     this.locale = locale;
-    this.dictionary = dictionary;
+  }
+
+  setLocale = (locale) => {
+    this.locale = locale;
   }
 
   t = (parent, key, ...vars) => {
     try {
-      return format(this.dictionary[parent][key][this.locale], ...vars);
+      return format(dictionary[parent][key][this.locale], ...vars);
     } catch (error) {
       return `*${parent}.${key}*`;
     }
@@ -22,16 +29,12 @@ class I18n {
 }
 
 // singleton
-let i18n = null;
+let i18n = new I18n(defaultLocale);
 
-export const configureI18n = (locale, dictionary) => {
-  i18n = new I18n(locale, dictionary);
+export const setLocale = (locale) => {
+  i18n.setLocale(locale);
 }
 
 export const t = (parent, key, ...vars) => {
-  if (i18n) {
-    return i18n.t(parent, key, ...vars);
-  } else {
-    return '';
-  }
+  return i18n.t(parent, key, ...vars);
 }

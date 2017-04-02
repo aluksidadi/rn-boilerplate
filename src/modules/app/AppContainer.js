@@ -1,8 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import Routes from '../../routes.js';
 import {connect} from 'react-redux';
-import {configureI18n} from '../../i18n';
-import dictionary from '../../dictionary';
+import {setLocale} from '../../i18n';
 
 // import OneSignal from 'react-native-onesignal';
 
@@ -34,7 +33,7 @@ class AppContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.me === null && nextProps.me) {
       // this._oneSignalSetup(this.props);
-      configureI18n(nextProps.me.locale, dictionary);
+      setLocale(nextProps.me.locale);
     }
   }
 

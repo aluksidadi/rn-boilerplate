@@ -1,4 +1,7 @@
 export default dictionary = {
+  home: {
+    'en_US': 'Home',
+  },
   welcome: {
     'en_US': 'Welcome {0} {1}!',
   },

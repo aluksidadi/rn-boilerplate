@@ -9,6 +9,7 @@ import {changeScene} from '../../modules/navigation/navigationActions.js';
 import OpenDrawerButtonContainer from '../../modules/navigation/OpenDrawerButtonContainer';
 import NavBar from '../../modules/navigation/components/NavBar';
 import commonStyles from '../../styles/common';
+import {t} from '../../i18n';
 
 class HomeContainer extends Component {
   static propTypes = {
@@ -22,7 +23,7 @@ class HomeContainer extends Component {
   static renderNavigationBar = (props) => {
     return (
       <NavBar
-        title={props.title}
+        title={t('homeScene', 'home')}
         leftButton={<OpenDrawerButtonContainer />} />
     );
   };
