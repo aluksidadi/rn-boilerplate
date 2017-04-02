@@ -1,6 +1,9 @@
+// action types
 import {
   LOGIN_SCENE_CHANGE_FORM_VALUE,
 } from './loginActions';
+
+// module action types
 import {
   AUTH_LOGIN_SUCCESS,
 } from '../../modules/auth/authActions';

@@ -65,3 +65,14 @@ RN_BOILERPLATE_RELEASE_KEY_ALIAS=rn-boilerplate-key-alias
 RN_BOILERPLATE_RELEASE_STORE_PASSWORD=password
 RN_BOILERPLATE_RELEASE_KEY_PASSWORD=password
 ```
+
+## Architecture convention
+1. module's actions/states/components are shareable
+  - scene MAY use module's actions/states/components
+  - module MAY use other module's actions/states/components
+2. scene's actions/states/components are not shareable
+  - scene should NEVER use other scene's actions/states/components
+  - module should NEVER use scene's actions/states/components
+3. container is where to connect actions/states
+4. component's job should only be for rendering
+5. try not to use internal state at all

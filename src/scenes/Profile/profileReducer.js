@@ -1,3 +1,4 @@
+// action types
 import {
   PROFILE_SCENE_CHANGE_FORM_VALUE,
   PROFILE_SCENE_TOGGLE_EDIT_MODE,
@@ -5,6 +6,8 @@ import {
   PROFILE_SCENE_GET_SUCCESS,
   PROFILE_SCENE_GET_ERROR,
 } from './profileActions';
+
+// module action types
 import {
   ME_UPDATE_MY_PROFILE_SUCCESS,
 } from '../../modules/me/meActions';

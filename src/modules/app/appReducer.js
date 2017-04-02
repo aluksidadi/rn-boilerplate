@@ -1,3 +1,4 @@
+// action types
 // import {
 // } from './appActions';
 

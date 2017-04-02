@@ -1,15 +1,25 @@
-import {STORAGE_KEYS} from '../../constants/constants';
-// import * as authApi from '../../api/authApi.js';
-import * as authApi from '../../api/authMock.js';
+// storage
 import {AsyncStorage} from 'react-native';
+import {STORAGE_KEYS} from '../../constants/constants';
+
+// api
+// import * as authApi from '../../api/authApi.js'; // uncomment this for real api
+import * as authApi from '../../api/authMock.js'; // mock api for testing
+
+// other module actions
 import * as navigationActions from '../navigation/navigationActions';
 import * as appActions from '../app/appActions';
 import * as meActions from '../me/meActions';
-import {SCENES} from '../../routes';
-import {ActionConst} from 'react-native-router-flux';
+
+// i18n
 import dictionary from './dictionary';
 import {t} from '../../i18n';
 
+// other
+import {SCENES} from '../../routes';
+import {ActionConst} from 'react-native-router-flux';
+
+// action types
 export const AUTH_LOGIN = 'AUTH_LOGIN';
 export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS';
 export const AUTH_LOGIN_ERROR = 'AUTH_LOGIN_ERROR';

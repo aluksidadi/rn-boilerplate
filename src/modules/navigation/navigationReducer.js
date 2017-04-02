@@ -1,9 +1,12 @@
+// action types
 import {
   NAVIGATION_CHANGE_SCENE,
   NAVIGATION_OPEN_DRAWER,
   NAVIGATION_CLOSE_DRAWER,
   NAVIGATION_ON_NAVIGATE,
 } from './navigationActions';
+
+// other
 import {SCENES} from '../../routes';
 
 const initialState = {

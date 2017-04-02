@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
   View,
@@ -6,13 +8,18 @@ import {
   TextInput,
   Button,
 } from 'react-native';
-// import {SpinnerOverlay} from '../../../components';
+import {SpinnerOverlay} from '../../../components';
+
+// styles
 import commonStyles from '../../../styles/common';
+
+// i18n
 import {t} from '../../../i18n';
 import dictionary from '../dictionary';
 
 export default class Profile extends Component {
   static propTypes = {
+    // states
     isFetchingProfile: PropTypes.bool.isRequired,
     isEditable: PropTypes.bool.isRequired,
     isEditMode: PropTypes.bool.isRequired,
@@ -21,9 +28,15 @@ export default class Profile extends Component {
       first_name: PropTypes.string,
       last_name: PropTypes.string,
     }),
+
+    // actions
     changeFormValue: PropTypes.func.isRequired,
     toggleEditMode: PropTypes.func.isRequired,
+
+    // module states
     isUpdatingMyProfile: PropTypes.bool.isRequired,
+
+    // module actions
     updateMyProfile: PropTypes.func.isRequired,
   };
 

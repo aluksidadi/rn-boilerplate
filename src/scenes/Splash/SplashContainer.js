@@ -1,15 +1,23 @@
 import React, {PropTypes, Component} from 'react';
-import Routes from '../../routes.js';
 import {connect} from 'react-redux';
+
+// module actions
 import {getLastSession} from '../../modules/auth/authActions';
 import {changeScene} from '../../modules/navigation/navigationActions';
+
+// components
 import Splash from './components/Splash';
+
+// constants
+import {SPLASH_WAIT} from '../../constants/constants';
+
+// other
 import {SCENES} from '../../routes';
 import {ActionConst} from 'react-native-router-flux';
-import {SPLASH_WAIT} from '../../constants/constants';
 
 class SplashContainer extends Component {
   static propTypes = {
+    // module actions
     getLastSession: PropTypes.func.isRequired,
     changeScene: PropTypes.func.isRequired,
   };
@@ -44,6 +52,7 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   {
+    // module actions
     getLastSession,
     changeScene,
   }

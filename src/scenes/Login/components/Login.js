@@ -1,4 +1,6 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
   View,
@@ -7,18 +9,29 @@ import {
   Button,
 } from 'react-native';
 import {SpinnerOverlay} from '../../../components';
+
+// styles
 import commonStyles from '../../../styles/common';
+
+// i18n
 import {t} from '../../../i18n';
 import dictionary from '../dictionary';
 
 export default class Login extends Component {
   static propTypes = {
+    // states
     form: PropTypes.shape({
       username: PropTypes.string,
       password: PropTypes.string,
     }),
-    isLoggingIn: PropTypes.bool.isRequired,
+
+    // actions
     changeFormValue: PropTypes.func.isRequired,
+
+    // module states
+    isLoggingIn: PropTypes.bool.isRequired,
+
+    // module actions
     login: PropTypes.func.isRequired,
   };
 

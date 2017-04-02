@@ -1,3 +1,4 @@
+// action types
 import {
   ME_GET,
   ME_GET_SUCCESS,
@@ -7,6 +8,8 @@ import {
   ME_UPDATE_MY_PROFILE_SUCCESS,
   ME_UPDATE_MY_PROFILE_ERROR,
 } from './meActions';
+
+// other module action types
 import {
   AUTH_DESTROY_SESSION,
 } from '../auth/authActions';

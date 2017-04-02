@@ -1,10 +1,14 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
   View,
 } from 'react-native';
-import commonStyles from '../styles/common';
 import {Spinner} from '.';
+
+// styles
+import commonStyles from '../styles/common';
 
 export default SpinnerOverlay = ({show}) => (
   <View style={[commonStyles.overlayContainer, !show && commonStyles.hidden]}>

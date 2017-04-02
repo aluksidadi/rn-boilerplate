@@ -1,14 +1,18 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
   View,
   Text,
   Platform,
 } from 'react-native';
+import {Header} from '../../../components';
+
+// styles
 import commonStyles from '../../../styles/common';
 import * as colors from '../../../styles/colors';
 import * as font from '../../../styles/font';
-import {Header} from '../../../components';
 
 export default NavBar = ({leftButton, title, rightButton}) => (
   <View style={styles.navbar}>

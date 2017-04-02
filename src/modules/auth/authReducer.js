@@ -1,3 +1,4 @@
+// action types
 import {
   AUTH_CREATE_SESSION,
   AUTH_DESTROY_SESSION,
@@ -5,6 +6,8 @@ import {
   AUTH_LOGIN_SUCCESS,
   AUTH_LOGIN_ERROR,
 } from './authActions';
+
+// storage
 import {STORAGE_KEYS} from '../../constants/constants';
 import {AsyncStorage} from 'react-native';
 

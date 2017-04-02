@@ -1,11 +1,17 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
   View,
   Text,
 } from 'react-native';
+
+// styles
 import commonStyles from '../styles/common';
 import * as colors from '../styles/colors';
+
+// constants
 import {HEADER_HEIGHT} from '../constants/constants';
 
 export default Header = ({children, style}) => (

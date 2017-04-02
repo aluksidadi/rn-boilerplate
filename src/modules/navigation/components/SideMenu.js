@@ -1,15 +1,23 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
   View,
   Text,
 	TouchableOpacity,
 } from 'react-native';
+
+// styles
 import commonStyles from '../../../styles/common';
 import * as font from '../../../styles/font';
-import {SCENES} from '../../../routes';
+
+// i18n
 import {t} from '../../../i18n';
 import dictionary from '../dictionary';
+
+// other
+import {SCENES} from '../../../routes';
 
 export default SideMenu = ({changeScene, logout}) => (
 	<View style={styles.container}>

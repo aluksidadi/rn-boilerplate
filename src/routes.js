@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+
+// router
 import {Router, Scene, Actions} from 'react-native-router-flux';
+
+// components
 import Login from './scenes/Login';
 import Home from './scenes/Home';
 import Profile from './scenes/Profile';

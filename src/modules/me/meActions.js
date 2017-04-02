@@ -1,7 +1,11 @@
-// import * as meApi from '../../api/meApi.js';
-import * as meApi from '../../api/meMock.js';
+// api
+// import * as meApi from '../../api/meApi.js'; // uncomment this for real api
+import * as meApi from '../../api/meMock.js'; // mock api for testing
+
+// other module actions
 import * as appActions from '../app/appActions';
 
+// action types
 export const ME_GET = 'ME_GET';
 export const ME_GET_SUCCESS = 'ME_GET_SUCCESS';
 export const ME_GET_ERROR = 'ME_GET_ERROR';

@@ -1,12 +1,16 @@
 import React, {Component, PropTypes} from 'react';
+
+// components
 import {
   StyleSheet,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import * as Animatable from 'react-native-animatable';
+
+// styles
 import commonStyles from '../styles/common';
 import * as colors from '../styles/colors';
 import * as font from '../styles/font';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import * as Animatable from 'react-native-animatable';
 
 export default Spinner = ({color, size}) => {
   const AnimatedSpinner = Animatable.createAnimatableComponent(Icon);

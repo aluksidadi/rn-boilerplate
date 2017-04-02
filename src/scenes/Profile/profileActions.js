@@ -1,8 +1,12 @@
-// import * as meApi from '../../api/meApi.js';
-import * as meApi from '../../api/meMock.js';
+// api
+// import * as usersApi from '../../api/usersApi.js'; // uncomment this for real api
+// import * as usersApi from '../../api/usersMock.js'; // mock api for testing
+
+// module actions
 import * as appActions from '../../modules/app/appActions';
 import * as meActions from '../../modules/me/meActions';
 
+// action types
 export const PROFILE_SCENE_GET = 'PROFILE_SCENE_GET';
 export const PROFILE_SCENE_GET_SUCCESS = 'PROFILE_SCENE_GET_SUCCESS';
 export const PROFILE_SCENE_GET_ERROR = 'PROFILE_SCENE_GET_ERROR';

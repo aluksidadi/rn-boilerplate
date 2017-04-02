@@ -1,12 +1,18 @@
 import React, {PropTypes, Component} from 'react';
-import Routes from '../../routes.js';
 import {connect} from 'react-redux';
+
+// components
+import Routes from '../../routes.js';
+
+// i18n
 import {setLocale} from '../../i18n';
 
+// other
 // import OneSignal from 'react-native-onesignal';
 
 class AppContainer extends Component {
   static propTypes = {
+    // other module states
     me: PropTypes.object,
   };
 
@@ -85,7 +91,10 @@ class AppContainer extends Component {
 
 function mapStateToProps(state) {
   return {
+    // states
     ...state.app,
+
+    // other module states
     me: state.me.me,
   };
 }

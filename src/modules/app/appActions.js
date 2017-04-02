@@ -1,10 +1,18 @@
+// other module actions
 import * as authActions from '../auth/authActions';
-import {SCENES} from '../../routes';
-import * as colors from '../../styles/colors';
-import Snackbar from 'react-native-snackbar';
+
+// i18n
 import dictionary from './dictionary';
 import {t} from '../../i18n';
 
+// styles
+import * as colors from '../../styles/colors';
+
+// other
+import {SCENES} from '../../routes';
+import Snackbar from 'react-native-snackbar';
+
+// action types
 export const APP_ON_ERROR = 'APP_ON_ERROR';
 export const APP_ON_MESSAGE = 'APP_ON_MESSAGE';
 export const APP_PROCESS_HTTP_RESPONSE = 'APP_PROCESS_HTTP_RESPONSE';
