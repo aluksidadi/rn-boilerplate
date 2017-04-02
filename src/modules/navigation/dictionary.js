@@ -5,6 +5,9 @@ export default dictionary = {
   home: {
     'en_US': 'Home',
   },
+  profile: {
+    'en_US': 'Profile',
+  },
   logout: {
     'en_US': 'Logout',
   },

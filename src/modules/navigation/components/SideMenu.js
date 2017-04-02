@@ -26,6 +26,13 @@ export default SideMenu = ({changeScene, logout}) => (
 			</TouchableOpacity>
 		</View>
 		<View style={styles.menuItem}>
+			<TouchableOpacity onPress={() => changeScene(SCENES.profile.key)}>
+				<Text>
+					{t(dictionary.profile)}
+				</Text>
+			</TouchableOpacity>
+		</View>
+		<View style={styles.menuItem}>
 			<TouchableOpacity onPress={logout}>
 				<Text>
 					{t(dictionary.logout)}

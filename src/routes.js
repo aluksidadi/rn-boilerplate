@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Router, Scene, Actions} from 'react-native-router-flux';
 import Login from './scenes/Login';
 import Home from './scenes/Home';
+import Profile from './scenes/Profile';
 import Splash from './scenes/Splash';
 import NavigationDrawerContainer from './modules/navigation/NavigationDrawerContainer';
 
@@ -24,6 +25,12 @@ export const SCENES = {
     initial: false,
     hideNavBar: false,
   },
+  profile: {
+    key: 'profile',
+    component: Profile,
+    initial: false,
+    hideNavBar: false,
+  },
 };
 
 const scenes = Actions.create(
@@ -31,6 +38,7 @@ const scenes = Actions.create(
     <Scene {...SCENES.splash} />
     <Scene {...SCENES.login} />
     <Scene {...SCENES.home} />
+    <Scene {...SCENES.profile} />
   </Scene>
 );
 

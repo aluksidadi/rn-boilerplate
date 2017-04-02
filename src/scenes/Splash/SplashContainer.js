@@ -20,11 +20,11 @@ class SplashContainer extends Component {
       .then(token => {
         if (token) {
           setTimeout(() => {
-            this.props.changeScene(SCENES.home.key, ActionConst.RESET);
+            this.props.changeScene(SCENES.home.key, {}, ActionConst.RESET);
           }, SPLASH_WAIT);
         } else {
           setTimeout(() => {
-            this.props.changeScene(SCENES.login.key, ActionConst.RESET);
+            this.props.changeScene(SCENES.login.key, {}, ActionConst.RESET);
           }, SPLASH_WAIT);
         }
       });

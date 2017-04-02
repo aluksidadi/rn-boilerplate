@@ -5,14 +5,17 @@ export const NAVIGATION_ON_NAVIGATE = 'NAVIGATION_ON_NAVIGATE';
 export const NAVIGATION_OPEN_DRAWER = 'NAVIGATION_OPEN_DRAWER';
 export const NAVIGATION_CLOSE_DRAWER = 'NAVIGATION_CLOSE_DRAWER';
 
-export const changeScene = (scene, type = ActionConst.PUSH) => {
+export const changeScene = (scene, params = {}, type = ActionConst.PUSH) => {
   return (dispatch, getState) => {
     dispatch({
       type: NAVIGATION_CHANGE_SCENE,
       scene
     });
 
-    Actions[scene]({type});
+    Actions[scene]({
+      ...params,
+      type
+    });
   };
 };
 

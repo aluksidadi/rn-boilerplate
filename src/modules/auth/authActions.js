@@ -49,7 +49,7 @@ export const login = (username, password) => {
           dispatch(_loginSuccess(token));
           dispatch(createSession(token));
           dispatch(meActions.getMe());
-          dispatch(navigationActions.changeScene(SCENES.home.key, ActionConst.RESET));
+          dispatch(navigationActions.changeScene(SCENES.home.key, {}, ActionConst.RESET));
           dispatch(appActions.onMessage(t(dictionary.loginSuccess)));
           return resp;
         }
@@ -85,7 +85,7 @@ export const logout = () => {
       .then((resp) => dispatch(appActions.processApiResponse(resp)))
       .then(
         (resp) => {
-          dispatch(navigationActions.changeScene(SCENES.login.key, ActionConst.RESET));
+          dispatch(navigationActions.changeScene(SCENES.login.key, {}, ActionConst.RESET));
 
           dispatch(_logoutSuccess());
           dispatch(destroySession());

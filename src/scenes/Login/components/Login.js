@@ -27,7 +27,7 @@ export default class Login extends Component {
       <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
         <SpinnerOverlay show={this.props.isLoggingIn} />
 
-        <View style={styles.form}>
+        <View>
           <TextInput
             style={styles.input}
             value={this.props.form.username}
@@ -65,8 +65,6 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-  form: {
-  },
   input: {
     width: 400,
   }
