@@ -19,6 +19,7 @@ class NavigationDrawerContainer extends Component {
     return (
       <Drawer
         ref="navigation"
+        open={this.props.isDrawerOpen}
         onClose={this.props.closeDrawer}
         type="displace"
         content={

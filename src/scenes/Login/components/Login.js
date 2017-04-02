@@ -7,6 +7,7 @@ import {
   Button,
 } from 'react-native';
 import commonStyles from '../../../styles/common';
+import {t} from '../../../i18n';
 
 export default class Login extends Component {
   static propTypes = {
@@ -31,7 +32,7 @@ export default class Login extends Component {
             autoCorrect={false}
             autoFocus={true}
             keyboardType={'email-address'}
-            placeholder={'Email'}/>
+            placeholder={t('loginScene', 'email')}/>
         </View>
         <View>
           <TextInput
@@ -43,15 +44,15 @@ export default class Login extends Component {
             autoCorrect={false}
             autoFocus={false}
             keyboardType={'default'}
-            placeholder={'Password'}/>
+            placeholder={t('loginScene', 'password')}/>
         </View>
         <View>
           <Button
             style={styles.input}
             onPress={() => this.props.login(this.props.form.username, this.props.form.password)}
             disabled={this.props.isLogging || !this.props.form.username || !this.props.form.password}
-            title="Login"
-            accessibilityLabel="Login"
+            title={t('loginScene', 'login')}
+            accessibilityLabel={t('loginScene', 'login')}
           />
         </View>
       </View>
