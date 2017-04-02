@@ -1,9 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Profile from './components/Profile';
-import {getProfile, saveProfile, toggleEditMode, changeFormValue} from './profileActions';
+import {getProfile, toggleEditMode, changeFormValue} from './profileActions';
+import {updateMyProfile} from '../../modules/me/meActions';
 import {SpinnerOverlay} from '../../components'
-import {changeScene} from '../../modules/navigation/navigationActions.js';
+import {changeScene} from '../../modules/navigation/navigationActions';
 import OpenDrawerButtonContainer from '../../modules/navigation/OpenDrawerButtonContainer';
 import NavBar from '../../modules/navigation/components/NavBar';
 import commonStyles from '../../styles/common';
@@ -13,18 +14,18 @@ import dictionary from './dictionary';
 class ProfileContainer extends Component {
   static propTypes = {
     isFetchingProfile: PropTypes.bool.isRequired,
-    isSavingProfile: PropTypes.bool.isRequired,
     isEditable: PropTypes.bool.isRequired,
     isEditMode: PropTypes.bool.isRequired,
     user: PropTypes.object,
     form: PropTypes.shape({
-      firstName: PropTypes.string,
-      lastName: PropTypes.string,
+      first_name: PropTypes.string,
+      last_name: PropTypes.string,
     }),
     toggleEditMode: PropTypes.func.isRequired,
-    saveProfile: PropTypes.func.isRequired,
     getProfile: PropTypes.func.isRequired,
     changeFormValue: PropTypes.func.isRequired,
+    isUpdatingMyProfile: PropTypes.bool.isRequired,
+    updateMyProfile: PropTypes.func.isRequired,
   };
 
   static renderNavigationBar = (props) => {
@@ -53,6 +54,7 @@ class ProfileContainer extends Component {
 function mapStateToProps(state) {
   return {
     ...state.profileScene,
+    isUpdatingMyProfile: state.me.isUpdatingMyProfile,
   };
 }
 
@@ -60,8 +62,8 @@ export default connect(
   mapStateToProps,
   {
     getProfile,
-    saveProfile,
     toggleEditMode,
     changeFormValue,
+    updateMyProfile,
   }
 )(ProfileContainer);

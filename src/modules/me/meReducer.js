@@ -3,6 +3,9 @@ import {
   ME_GET_SUCCESS,
   ME_GET_ERROR,
   ME_SET,
+  ME_UPDATE_MY_PROFILE,
+  ME_UPDATE_MY_PROFILE_SUCCESS,
+  ME_UPDATE_MY_PROFILE_ERROR,
 } from './meActions';
 import {
   AUTH_DESTROY_SESSION,
@@ -10,6 +13,7 @@ import {
 
 const initialState = {
   isFetchingMe: false,
+  isUpdatingMyProfile: false,
   me: null,
 };
 
@@ -38,14 +42,27 @@ export default function app(state = initialState, action) {
     case ME_GET_ERROR: {
       return {
         ...state,
-        isFetchingMe: false,
+        isUpdatingMyProfile: false,
       };
     }
-    case ME_SET: {
+    case ME_UPDATE_MY_PROFILE: {
+      return {
+        ...state,
+        isUpdatingMyProfile: true,
+      };
+    }
+    case ME_UPDATE_MY_PROFILE_SUCCESS: {
       const {me} = action;
       return {
         ...state,
+        isUpdatingMyProfile: false,
         me,
+      };
+    }
+    case ME_UPDATE_MY_PROFILE_ERROR: {
+      return {
+        ...state,
+        isUpdatingMyProfile: false,
       };
     }
     default: {

@@ -14,26 +14,26 @@ import dictionary from '../dictionary';
 export default class Profile extends Component {
   static propTypes = {
     isFetchingProfile: PropTypes.bool.isRequired,
-    isSavingProfile: PropTypes.bool.isRequired,
     isEditable: PropTypes.bool.isRequired,
     isEditMode: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
     form: PropTypes.shape({
-      firstName: PropTypes.string,
-      lastName: PropTypes.string,
+      first_name: PropTypes.string,
+      last_name: PropTypes.string,
     }),
     changeFormValue: PropTypes.func.isRequired,
-    saveProfile: PropTypes.func.isRequired,
     toggleEditMode: PropTypes.func.isRequired,
+    isUpdatingMyProfile: PropTypes.bool.isRequired,
+    updateMyProfile: PropTypes.func.isRequired,
   };
 
   render() {
     const {
       isEditMode,
       isEditable,
-      isSavingProfile,
+      isUpdatingMyProfile,
       toggleEditMode,
-      saveProfile,
+      updateMyProfile,
       form,
       user,
       changeFormValue
@@ -41,15 +41,15 @@ export default class Profile extends Component {
 
     return (
       <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
-        <SpinnerOverlay show={isSavingProfile} />
+        <SpinnerOverlay show={isUpdatingMyProfile} />
 
         <View style={styles.field}>
           {
             isEditMode
             ? <TextInput
                 style={styles.input}
-                value={form.firstName}
-                onChangeText={(firstName) => changeFormValue('firstName', firstName)}
+                value={form.first_name}
+                onChangeText={(first_name) => changeFormValue('first_name', first_name)}
                 autoCapitalize={'none'}
                 autoCorrect={false}
                 autoFocus={false}
@@ -62,8 +62,8 @@ export default class Profile extends Component {
             isEditMode
             ? <TextInput
                 style={styles.input}
-                value={form.lastName}
-                onChangeText={(lastName) => changeFormValue('lastName', lastName)}
+                value={form.last_name}
+                onChangeText={(last_name) => changeFormValue('last_name', last_name)}
                 autoCapitalize={'none'}
                 autoCorrect={false}
                 autoFocus={false}
@@ -83,8 +83,8 @@ export default class Profile extends Component {
                 />
                 <Button
                   style={styles.button}
-                  onPress={saveProfile}
-                  disabled={isSavingProfile || !form.firstName || !form.lastName}
+                  onPress={() => updateMyProfile(form)}
+                  disabled={isUpdatingMyProfile || !form.first_name || !form.last_name}
                   title={t(dictionary.saveProfile)}
                   accessibilityLabel={t(dictionary.saveProfile)}
                 />

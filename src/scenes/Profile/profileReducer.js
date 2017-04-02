@@ -4,19 +4,18 @@ import {
   PROFILE_SCENE_GET,
   PROFILE_SCENE_GET_SUCCESS,
   PROFILE_SCENE_GET_ERROR,
-  PROFILE_SCENE_SAVE,
-  PROFILE_SCENE_SAVE_SUCCESS,
-  PROFILE_SCENE_SAVE_ERROR,
 } from './profileActions';
+import {
+  ME_UPDATE_MY_PROFILE_SUCCESS,
+} from '../../modules/me/meActions';
 
 const initialState = {
   user: null,
   isFetchingProfile: false,
-  isSavingProfile: false,
   isEditable: false,
   form: {
-    firstName: '',
-    lastName: '',
+    first_name: '',
+    last_name: '',
   },
   isEditMode: false,
 };
@@ -39,8 +38,8 @@ export default function profileScene(state = initialState, action) {
         ...state,
         // reset form
         form: {
-          firstName: state.user.profile.first_name,
-          lastName: state.user.profile.last_name,
+          first_name: state.user.profile.first_name,
+          last_name: state.user.profile.last_name,
         },
         isEditMode,
       };
@@ -66,25 +65,12 @@ export default function profileScene(state = initialState, action) {
         isFetchingProfile: false,
       };
     }
-    case PROFILE_SCENE_SAVE: {
-      return {
-        ...state,
-        isSavingProfile: true,
-      };
-    }
-    case PROFILE_SCENE_SAVE_SUCCESS: {
-      const {user} = action;
+    case ME_UPDATE_MY_PROFILE_SUCCESS: {
+      const {me: user} = action;
       return {
         ...state,
         user,
-        isSavingProfile: false,
         isEditMode: false,
-      };
-    }
-    case PROFILE_SCENE_SAVE_ERROR: {
-      return {
-        ...state,
-        isSavingProfile: false,
       };
     }
     default: {
