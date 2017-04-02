@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Login from './components/Login';
-import {login, changeFormValue} from './loginActions.js';
+import {changeFormValue} from './loginActions';
+import {login} from '../../modules/auth/authActions';
 // import {changeScene} from '../../modules/navigation/navigationActions.js';
 
 class LoginContainer extends Component {
@@ -10,7 +11,7 @@ class LoginContainer extends Component {
       username: PropTypes.string,
       password: PropTypes.string,
     }),
-    isLogging: PropTypes.bool.isRequired,
+    isLoggingIn: PropTypes.bool.isRequired,
     changeFormValue: PropTypes.func.isRequired,
     login: PropTypes.func.isRequired,
   };
@@ -23,6 +24,7 @@ class LoginContainer extends Component {
 function mapStateToProps(state) {
   return {
     ...state.loginScene,
+    isLoggingIn: state.auth.isLoggingIn,
   };
 }
 

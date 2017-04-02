@@ -6,14 +6,19 @@ import {
 import commonStyles from '../styles/common';
 import {Spinner} from '.';
 
-export default SpinnerOverlay = () => (
-  <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
+export default SpinnerOverlay = ({show}) => (
+  <View style={[commonStyles.overlayContainer, !show && commonStyles.hidden]}>
     <View style={commonStyles.overlay} />
     <Spinner />
   </View>
 );
 
 SpinnerOverlay.propTypes = {
+  show: PropTypes.bool.isRequired,
+};
+
+SpinnerOverlay.defaultProps = {
+  show: false,
 };
 
 const styles = StyleSheet.create({

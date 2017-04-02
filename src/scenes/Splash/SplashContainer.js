@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import Routes from '../../routes.js';
 import {connect} from 'react-redux';
-import {getLastSession} from '../../modules/app/appActions';
+import {getLastSession} from '../../modules/auth/authActions';
 import {changeScene} from '../../modules/navigation/navigationActions';
 import Splash from './components/Splash';
 import {SCENES} from '../../routes';

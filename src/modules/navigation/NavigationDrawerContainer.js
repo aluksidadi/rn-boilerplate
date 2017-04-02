@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Drawer from 'react-native-drawer';
 import SideMenu from './components/SideMenu';
 import {openDrawer, closeDrawer, changeScene, onNavigate} from './navigationActions';
-import {logout} from '../app/appActions';
+import {logout} from '../auth/authActions';
 
 class NavigationDrawerContainer extends Component {
   static propTypes = {

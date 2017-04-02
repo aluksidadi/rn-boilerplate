@@ -1,17 +1,15 @@
 import {
   LOGIN_SCENE_CHANGE_FORM_VALUE,
-  LOGIN_SCENE_LOGIN,
-  LOGIN_SCENE_LOGIN_SUCCESS,
-  LOGIN_SCENE_LOGIN_ERROR,
 } from './loginActions';
+import {
+  AUTH_LOGIN_SUCCESS,
+} from '../../modules/auth/authActions';
 
 const initialState = {
   form: {
     username: '',
     password: '',
   },
-  isLogging: false,
-  error: false
 };
 
 export default function loginScene(state = initialState, action) {
@@ -25,28 +23,14 @@ export default function loginScene(state = initialState, action) {
           [name]: value,
         },
       };
-    case LOGIN_SCENE_LOGIN:
-      return {
-        ...state,
-        isLogging: true,
-        errorLogin: false
-      };
-    case LOGIN_SCENE_LOGIN_SUCCESS:
+    case AUTH_LOGIN_SUCCESS:
       return {
         ...state,
         form: {
           username: '',
           password: '',
         },
-        isLogging: false,
-      };
-    case LOGIN_SCENE_LOGIN_ERROR:
-      const { error } = action;
-      return {
-        ...state,
-        error,
-        isLogging: false
-      };
+    };
     default:
       // nothing to do
       return state;

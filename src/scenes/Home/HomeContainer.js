@@ -32,7 +32,7 @@ class HomeContainer extends Component {
     const {me, isHomeModalOpen, openHomeModal, closeHomeModal} = this.props;
 
     if (!me) {
-      return <SpinnerOverlay />
+      return <SpinnerOverlay show={true} />
     }
 
     return (

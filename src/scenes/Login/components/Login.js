@@ -6,6 +6,7 @@ import {
   TextInput,
   Button,
 } from 'react-native';
+import {SpinnerOverlay} from '../../../components';
 import commonStyles from '../../../styles/common';
 import {t} from '../../../i18n';
 
@@ -15,7 +16,7 @@ export default class Login extends Component {
       username: PropTypes.string,
       password: PropTypes.string,
     }),
-    isLogging: PropTypes.bool.isRequired,
+    isLoggingIn: PropTypes.bool.isRequired,
     changeFormValue: PropTypes.func.isRequired,
     login: PropTypes.func.isRequired,
   };
@@ -23,7 +24,9 @@ export default class Login extends Component {
   render() {
     return (
       <View style={[commonStyles.fullScreen, commonStyles.centeredChilds]}>
-        <View style={styles.stretched}>
+        <SpinnerOverlay show={this.props.isLoggingIn} />
+
+        <View style={styles.form}>
           <TextInput
             style={styles.input}
             value={this.props.form.username}
@@ -50,7 +53,7 @@ export default class Login extends Component {
           <Button
             style={styles.input}
             onPress={() => this.props.login(this.props.form.username, this.props.form.password)}
-            disabled={this.props.isLogging || !this.props.form.username || !this.props.form.password}
+            disabled={this.props.isLoggingIn || !this.props.form.username || !this.props.form.password}
             title={t('loginScene', 'login')}
             accessibilityLabel={t('loginScene', 'login')}
           />
@@ -61,6 +64,8 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
+  form: {
+  },
   input: {
     width: 400,
   }

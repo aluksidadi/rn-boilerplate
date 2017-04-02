@@ -8,7 +8,6 @@ import {setLocale} from '../../i18n';
 class AppContainer extends Component {
   static propTypes = {
     me: PropTypes.object,
-    token: PropTypes.string,
     isFetchingMe: PropTypes.bool,
   };
 
