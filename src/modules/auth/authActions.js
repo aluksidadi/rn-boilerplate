@@ -30,8 +30,9 @@ const _loginSuccess = (token) => ({
   token,
 });
 
-const _loginError = () => ({
+const _loginError = (error) => ({
   type: AUTH_LOGIN_ERROR,
+  error,
 });
 
 export const login = (username, password) => {
@@ -43,7 +44,6 @@ export const login = (username, password) => {
       .then((resp) => dispatch(appActions.processApiResponse(resp)))
       .then(
         (resp) => {
-          console.log('===', resp);
           const {token} = resp.data;
 
           dispatch(_loginSuccess(token));
@@ -55,7 +55,7 @@ export const login = (username, password) => {
         }
       )
       .catch((error) => {
-        dispatch(_loginError());
+        dispatch(_loginError(error));
         return error;
       });
 
@@ -93,7 +93,7 @@ export const logout = () => {
         }
       )
       .catch((error) => {
-        dispatch(_logoutError());
+        dispatch(_logoutError(error));
         dispatch(destroySession());
         return error;
       });
