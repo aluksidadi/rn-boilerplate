@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 // components
 import Profile from './components/Profile';
 import {SpinnerOverlay} from '../../components'
-import OpenDrawerButtonContainer from '../../modules/navigation/OpenDrawerButtonContainer';
+import BackButtonContainer from '../../modules/navigation/BackButtonContainer';
 import NavBar from '../../modules/navigation/components/NavBar';
 
 // actions
@@ -49,7 +49,7 @@ class ProfileContainer extends Component {
     return (
       <NavBar
         title={t(dictionary.profile)}
-        leftButton={<OpenDrawerButtonContainer />} />
+        leftButton={<BackButtonContainer />} />
     );
   };
 

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 // components
 import Settings from './components/Settings';
 import {SpinnerOverlay} from '../../components'
-import OpenDrawerButtonContainer from '../../modules/navigation/OpenDrawerButtonContainer';
+import BackButtonContainer from '../../modules/navigation/BackButtonContainer';
 import NavBar from '../../modules/navigation/components/NavBar';
 
 // actions
@@ -43,7 +43,7 @@ class SettingsContainer extends Component {
     return (
       <NavBar
         title={t(dictionary.settings)}
-        leftButton={<OpenDrawerButtonContainer />} />
+        leftButton={<BackButtonContainer />} />
     );
   };
 
