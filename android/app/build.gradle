@@ -95,6 +95,7 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        // @NOTE: onesignal
         manifestPlaceholders = [onesignal_app_id: RN_BOILERPLATE_ONESIGNAL_APP_ID,
                                 onesignal_google_project_number: "REMOTE"]
     }
@@ -106,6 +107,7 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+    // @NOTE: release keys
     signingConfigs {
         release {
             if (project.hasProperty('RN_BOILERPLATE_RELEASE_STORE_FILE')) {

@@ -2,7 +2,15 @@
 
 1. Follow guide on how to setup Android/IOS https://facebook.github.io/react-native/docs/getting-started.html 
 2. `$ npm install`
-3. `$ react-native run-android`
+3. Create release keystore - https://facebook.github.io/react-native/docs/signed-apk-android.html (Name it rn-boilerplate-release-key.keystore)
+4. Put the release key in `android/app` folder
+5. Setup these gradle properties in `~/.gradle/gradle.properties`: (values based on the keystore you created on step 3)
+RN_BOILERPLATE_ONESIGNAL_APP_ID=xxxx
+RN_BOILERPLATE_RELEASE_STORE_FILE=rn-boilerplate-release-key.keystore
+RN_BOILERPLATE_RELEASE_KEY_ALIAS=rn-boilerplate-key-alias
+RN_BOILERPLATE_RELEASE_STORE_PASSWORD=password
+RN_BOILERPLATE_RELEASE_KEY_PASSWORD=password
+6. `$ react-native run-android`
 
 ## Whats this boilerplate includes
 1. Login page
@@ -34,36 +42,23 @@ Note: Edit both file and rename the project name
 $ npm install --save react-native-drawer
 $ npm install --save react-native-router-flux
 $ npm install --save react-native-snackbar
-$ npm install --save react-redux
 $ npm install --save redux
+$ npm install --save react-redux
 $ npm install --save redux-logger
 $ npm install --save redux-thunk
 $ npm install --save react-native-vector-icons
 $ npm install --save react-native-onesignal
+$ npm install --save react-native-animatable
 ```
 5. Link
 ```
 $ react-native link
 ```
-6. Run
+NOTE: you need to manually configure onesignal (check https://github.com/geektimecoil/react-native-onesignal)
+6. Create release keystore and add the configuration on `android/app/build.gradle`
+7. Run
 ```
 $ react-native run-android
-```
-
-## One signal configuration
-1. Set gradle properties
-```
-RN_BOILERPLATE_ONESIGNAL_APP_ID=xxxx
-```
-
-## Release configuration
-1. Create release keys - https://facebook.github.io/react-native/docs/signed-apk-android.html 
-2. Set gradle properties
-```
-RN_BOILERPLATE_RELEASE_STORE_FILE=rn-boilerplate-release-key.keystore
-RN_BOILERPLATE_RELEASE_KEY_ALIAS=rn-boilerplate-key-alias
-RN_BOILERPLATE_RELEASE_STORE_PASSWORD=password
-RN_BOILERPLATE_RELEASE_KEY_PASSWORD=password
 ```
 
 ## Architecture convention
