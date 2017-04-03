@@ -37,7 +37,7 @@ class AppContainer extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.me === null && nextProps.me) {
       // this._oneSignalSetup(nextProps);
-      setLocale(nextProps.me.locale);
+      setLocale(nextProps.me.settings.locale);
     }
   }
 

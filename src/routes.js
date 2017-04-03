@@ -7,6 +7,7 @@ import {Router, Scene, Actions} from 'react-native-router-flux';
 import Login from './scenes/Login';
 import Home from './scenes/Home';
 import Profile from './scenes/Profile';
+import Settings from './scenes/Settings';
 import Splash from './scenes/Splash';
 import NavigationDrawerContainer from './modules/navigation/NavigationDrawerContainer';
 
@@ -35,6 +36,12 @@ export const SCENES = {
     initial: false,
     hideNavBar: false,
   },
+  settings: {
+    key: 'settings',
+    component: Settings,
+    initial: false,
+    hideNavBar: false,
+  },
 };
 
 const scenes = Actions.create(
@@ -43,6 +50,7 @@ const scenes = Actions.create(
     <Scene {...SCENES.login} />
     <Scene {...SCENES.home} />
     <Scene {...SCENES.profile} />
+    <Scene {...SCENES.settings} />
   </Scene>
 );
 

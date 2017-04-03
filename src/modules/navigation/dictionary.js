@@ -8,6 +8,9 @@ export default dictionary = {
   profile: {
     'en_US': 'Profile',
   },
+  settings: {
+    'en_US': 'Settings',
+  },
   logout: {
     'en_US': 'Logout',
   },

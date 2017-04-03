@@ -7,6 +7,9 @@ import {
   ME_UPDATE_MY_PROFILE,
   ME_UPDATE_MY_PROFILE_SUCCESS,
   ME_UPDATE_MY_PROFILE_ERROR,
+  ME_UPDATE_MY_SETTINGS,
+  ME_UPDATE_MY_SETTINGS_SUCCESS,
+  ME_UPDATE_MY_SETTINGS_ERROR,
 } from './meActions';
 
 // other module action types
@@ -17,6 +20,7 @@ import {
 const initialState = {
   isFetchingMe: false,
   isUpdatingMyProfile: false,
+  isUpdatingMySettings: false,
   me: null,
 };
 
@@ -66,6 +70,26 @@ export default function app(state = initialState, action) {
       return {
         ...state,
         isUpdatingMyProfile: false,
+      };
+    }
+    case ME_UPDATE_MY_SETTINGS: {
+      return {
+        ...state,
+        isUpdatingMySettings: true,
+      };
+    }
+    case ME_UPDATE_MY_SETTINGS_SUCCESS: {
+      const {me} = action;
+      return {
+        ...state,
+        isUpdatingMySettings: false,
+        me,
+      };
+    }
+    case ME_UPDATE_MY_SETTINGS_ERROR: {
+      return {
+        ...state,
+        isUpdatingMySettings: false,
       };
     }
     default: {

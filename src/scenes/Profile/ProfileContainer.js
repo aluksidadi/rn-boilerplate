@@ -12,7 +12,6 @@ import {getProfile, toggleEditMode, changeFormValue} from './profileActions';
 
 // module actions
 import {updateMyProfile} from '../../modules/me/meActions';
-import {changeScene} from '../../modules/navigation/navigationActions';
 
 // styles
 import commonStyles from '../../styles/common';
@@ -34,6 +33,7 @@ class ProfileContainer extends Component {
     }),
     
     // actions
+    getProfile: PropTypes.func.isRequired,
     toggleEditMode: PropTypes.func.isRequired,
     getProfile: PropTypes.func.isRequired,
     changeFormValue: PropTypes.func.isRequired,
