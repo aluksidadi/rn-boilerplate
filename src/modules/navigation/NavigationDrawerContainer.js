@@ -6,7 +6,7 @@ import Drawer from 'react-native-drawer';
 import SideMenu from './components/SideMenu';
 
 // actions
-import {openDrawer, closeDrawer, changeScene, onNavigate} from './navigationActions';
+import {openDrawer, closeDrawer, changeScene} from './navigationActions';
 
 // other module actions
 import {logout} from '../auth/authActions';
@@ -19,7 +19,6 @@ class NavigationDrawerContainer extends Component {
     // actions
     openDrawer: PropTypes.func.isRequired,
     closeDrawer: PropTypes.func.isRequired,
-    onNavigate: PropTypes.func.isRequired,
     changeScene: PropTypes.func.isRequired,
 
     // other module actions
@@ -66,7 +65,6 @@ export default connect(
     openDrawer,
     closeDrawer,
     changeScene,
-    onNavigate,
 
     // other module actions
     logout,

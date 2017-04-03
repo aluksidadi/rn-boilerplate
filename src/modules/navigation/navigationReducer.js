@@ -7,16 +7,26 @@ import {
 } from './navigationActions';
 
 // other
+import {ActionConst} from 'react-native-router-flux';
 import {SCENES} from '../../routes';
 
 const initialState = {
-  scene: SCENES.splash.key,
+  scene: {},
   isDrawerOpen: false,
 };
 
 export default function navigation(state = initialState, action) {
   switch (action.type) {
-    case NAVIGATION_CHANGE_SCENE: {
+    case ActionConst.JUMP:
+    case ActionConst.PUSH:
+    case ActionConst.REPLACE:
+    case ActionConst.BACK:
+    case ActionConst.BACK_ACTION:
+    case ActionConst.POP_AND_REPLACE:
+    case ActionConst.POP_TO:
+    case ActionConst.REFRESH:
+    case ActionConst.RESET:
+    case ActionConst.FOCUS: {
       const {scene} = action;
       return {
         ...state,
@@ -31,12 +41,6 @@ export default function navigation(state = initialState, action) {
       };
     }
     case NAVIGATION_CLOSE_DRAWER: {
-      return {
-        ...state,
-        isDrawerOpen: false,
-      };
-    }
-    case NAVIGATION_ON_NAVIGATE: {
       return {
         ...state,
         isDrawerOpen: false,

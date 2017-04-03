@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 // router
 import {Router, Scene, Actions} from 'react-native-router-flux';
@@ -54,11 +55,13 @@ const scenes = Actions.create(
   </Scene>
 );
 
+const RouterWithRedux = connect()(Router);
+
 export default class Routes extends Component {
   render() {
     return (
       <NavigationDrawerContainer>
-        <Router scenes={scenes} />
+        <RouterWithRedux scenes={scenes} />
       </NavigationDrawerContainer>
     );
   }
