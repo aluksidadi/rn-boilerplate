@@ -71,3 +71,7 @@ $ react-native run-android
 3. container is where to connect actions/states
 4. component's job should only be for rendering
 5. try not to use internal state at all
+
+## TODO
+1. Top level loading spinner modal
+2. Migrate to react navigation
